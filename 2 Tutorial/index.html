@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Tutorial - Todavía me cuida</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" href="data:,">
+
+    <!-- TIPOGRAFÍA COMFORTAA -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- ESTILOS -->
+    <link rel="stylesheet" href="estilos.css">
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <main class="tutorial">
+
+        <!-- ENCABEZADO -->
+        <header class="encabezado">
+
+            <h1>¡Vamos a explorar!</h1>
+
+            <p class="instruccion">
+                Toca cada letra para escuchar su sonido
+            </p>
+
+        </header>
+
+        <!-- ZONA INTERACTIVA -->
+        <section class="zona-interactiva"
+                 aria-label="Tutorial interactivo de vocales">
+
+            <div id="contenedorVocales"
+                 class="contenedor-vocales">
+            </div>
+
+        </section>
+
+        <!-- PROGRESO -->
+        <div class="informacion">
+
+            <p id="progreso">
+                Letra 1 de 5
+            </p>
+
+            <p id="estado"
+               class="estado"
+               role="status"
+               aria-live="polite">
+            </p>
+
+        </div>
+
+        <!-- AUDIO -->
+        <audio id="audioLetra" preload="auto"></audio>
+
+    </main>
+
+</body>
+</html>

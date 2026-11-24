@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Todavía me cuida</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <main class="contenedor">
+
+        <header class="encabezado">
+            <picture>
+                <source media="(min-width: 768px)" srcset="TITULO_WEB.svg">
+                <img src="TITULO_MOVIL.svg" alt="Todavía me cuida" class="titulo">
+            </picture>
+
+            <h1>¿En qué ciclo de la noche estás?</h1>
+        </header>
+
+        <section class="libros">
+
+            <!-- LIBRO 1: LA NOCHE -->
+            <article class="tarjeta noche">
+
+                <picture>
+                    <source media="(min-width: 768px)" srcset="PORTADA_N_WEB.png">
+                    <img src="PORTADA_N_MOVIL.png" alt="Portada de La Noche">
+                </picture>
+
+                <div class="informacion">
+                    <h2>La Noche</h2>
+                    <button data-libro="noche">Explorar</button>
+                </div>
+
+            </article>
+
+            <!-- LIBRO 2: HORA AZUL -->
+            <article class="tarjeta hora-azul">
+
+                <picture>
+                    <source media="(min-width: 768px)" srcset="PORTADA_HA_WEB.png">
+                    <img src="PORTADA_HA_MOVIL.png" alt="Portada de Hora Azul">
+                </picture>
+
+                <div class="informacion">
+                    <h2>Hora Azul</h2>
+                    <button data-libro="hora-azul">Explorar</button>
+                </div>
+
+            </article>
+
+            <!-- LIBRO 3: EL ALBA -->
+            <article class="tarjeta alba">
+
+                <picture>
+                    <source media="(min-width: 768px)" srcset="PORTADA_A_WEB.png">
+                    <img src="PORTADA_A_MOVIL.png" alt="Portada de El Alba">
+                </picture>
+
+                <div class="informacion">
+                    <h2>El Alba</h2>
+                    <button data-libro="alba">Explorar</button>
+                </div>
+
+            </article>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

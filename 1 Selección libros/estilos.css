@@ -1,0 +1,197 @@
+
+/* CONFIGURACIÓN GENERAL */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Comfortaa", sans-serif;
+    color: #E8E9D0;
+
+    background-color: #26345F;
+    background-image: url("FONDO_MOVIL.png");
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 30px 20px 40px;
+}
+
+/* ENCABEZADO */
+
+.encabezado {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.titulo {
+    display: block;
+    width: 85%;
+    max-width: 520px;
+    height: auto;
+    margin: 0 auto 25px;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(20px, 4vw, 36px);
+    font-weight: 400;
+}
+
+/* TARJETAS DE LOS LIBROS */
+
+.libros {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.tarjeta {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 15px;
+
+    padding: 20px;
+    border: 4px solid #F2F0E6;
+    border-radius: 16px;
+}
+
+.noche {
+    background-color: #28315C;
+}
+
+.hora-azul {
+    background-color: #2668A8;
+}
+
+.alba {
+    background-color: #3CA2D2;
+}
+
+/* PORTADAS */
+
+.tarjeta picture {
+    display: block;
+    flex: 0 0 38%;
+}
+
+.tarjeta img {
+    display: block;
+    width: 100%;
+    height: auto;
+    box-shadow: 8px 10px 12px #0005;
+}
+
+/* NOMBRE Y BOTÓN */
+
+.informacion {
+    flex: 1;
+    min-width: 0;
+    text-align: center;
+}
+
+.informacion h2 {
+    margin: 0 0 12px;
+    font-size: clamp(18px, 3vw, 30px);
+    font-weight: 400;
+}
+
+button {
+    padding: 10px 22px;
+
+    border: none;
+    border-radius: 14px;
+
+    background-color: #E8E9D0;
+    color: #28315C;
+
+    font-family: inherit;
+    font-size: clamp(15px, 2vw, 22px);
+    font-weight: 500;
+
+    cursor: pointer;
+    box-shadow: 5px 7px 10px #0005;
+
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 6px 10px 14px #0006;
+}
+
+button:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 4px;
+}
+
+/* VERSIÓN ESCRITORIO */
+
+@media (min-width: 768px) {
+
+    body {
+        background-image: url("FONDO_WEB.png");
+    }
+
+    .contenedor {
+        min-height: 100vh;
+        padding: 35px;
+    }
+
+    .encabezado {
+        margin-bottom: 45px;
+    }
+
+    .libros {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 35px;
+    }
+
+    .tarjeta {
+        flex: 1;
+        min-width: 0;
+
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+
+        padding: 35px 20px;
+    }
+
+    .tarjeta picture {
+        flex: 0 1 auto;
+        width: 75%;
+    }
+
+    .informacion {
+        flex: 0 0 auto;
+    }
+}
+
+/* PANTALLAS MUY PEQUEÑAS */
+
+@media (max-width: 360px) {
+
+    .contenedor {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .tarjeta {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    button {
+        padding: 9px 14px;
+    }
+}

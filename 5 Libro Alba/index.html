@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Alba — Realidad aumentada</title>
+<script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+</head>
+<body>
+<!-- Audios por página -->
+<audio id="a1_audioLUZ" preload="auto" src="./A1/LUZ.mp3"></audio>
+<audio id="a1_audioMIEDO" preload="auto" src="./A1/MIEDO.mp3"></audio>
+<audio id="a1_audioRISAS" preload="auto" src="./A1/RISAS.mp3"></audio>
+<audio id="a1_audioOVNI" preload="auto" src="./A1/OVNI.mp3"></audio>
+<audio id="a2_audioLA" preload="auto" src="./A2/LA.mp3"></audio>
+<audio id="a2_audioLUZ" preload="auto" src="./A2/LUZ.mp3"></audio>
+<audio id="a2_audioNOS" preload="auto" src="./A2/NOS.mp3"></audio>
+<audio id="a2_audioCUIDA" preload="auto" src="./A2/CUIDA.mp3"></audio>
+<audio id="a2_audioOVNI" preload="auto" src="./A2/OVNI.mp3"></audio>
+<audio id="a3_audioALAMO" preload="auto" src="./A3/ALAMO.mp3"></audio>
+<audio id="a3_audioPERROS" preload="auto" src="./A3/PERROS.mp3"></audio>
+<audio id="a3_audioSILENCIO" preload="auto" src="./A3/SILENCIO.mp3"></audio>
+<audio id="a3_audioOVNI" preload="auto" src="./A3/OVNI.mp3"></audio>
+<audio id="a4_audioLLEGAMOS" preload="auto" src="./A4/LLEGAMOS.mp3"></audio>
+<audio id="a4_audioBIEN" preload="auto" src="./A4/BIEN.mp3"></audio>
+<audio id="a4_audioA" preload="auto" src="./A4/A.mp3"></audio>
+<audio id="a4_audioCASA" preload="auto" src="./A4/CASA.mp3"></audio>
+<audio id="a4_audioOVNI" preload="auto" src="./A4/OVNI.mp3"></audio>
+<audio id="a5_audioALGUN" preload="auto" src="./A5/ALGUN.mp3"></audio>
+<audio id="a5_audioDIA" preload="auto" src="./A5/DIA.mp3"></audio>
+<audio id="a5_audioVOLVERE" preload="auto" src="./A5/VOLVERE.mp3"></audio>
+<audio id="a5_audioA" preload="auto" src="./A5/A.mp3"></audio>
+<audio id="a5_audioVERLA" preload="auto" src="./A5/VERLA.mp3"></audio>
+<audio id="a5_audioOVNI" preload="auto" src="./A5/OVNI.mp3"></audio>
+<a-scene mindar-image="imageTargetSrc: ./targets.mind;" color-space="sRGB" renderer="colorManagement: true" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+<a-assets>
+<img id="a1_imagenLUZ" src="./A1/LUZ.png"/>
+<img id="a1_imagenMIEDO" src="./A1/MIEDO.png"/>
+<img id="a1_imagenRISAS" src="./A1/RISAS.png"/>
+<img id="a1_imagenMano" src="./A1/MANO.png"/>
+<img id="a1_imagenOVNI" src="./A1/OVNI.png"/>
+<img id="a2_imagenLA" src="./A2/LA.png"/>
+<img id="a2_imagenLUZ" src="./A2/LUZ.png"/>
+<img id="a2_imagenNOS" src="./A2/NOS.png"/>
+<img id="a2_imagenCUIDA" src="./A2/CUIDA.png"/>
+<img id="a2_imagenMano" src="./A2/MANO.png"/>
+<img id="a2_imagenOVNI" src="./A2/OVNI.png"/>
+<img id="a3_imagenALAMO" src="./A3/ALAMO.png"/>
+<img id="a3_imagenPERROS" src="./A3/PERROS.png"/>
+<img id="a3_imagenSILENCIO" src="./A3/SILENCIO.png"/>
+<img id="a3_imagenMano" src="./A3/MANO.png"/>
+<img id="a3_imagenOVNI" src="./A3/OVNI.png"/>
+<img id="a4_imagenLLEGAMOS" src="./A4/LLEGAMOS.png"/>
+<img id="a4_imagenBIEN" src="./A4/BIEN.png"/>
+<img id="a4_imagenA" src="./A4/A.png"/>
+<img id="a4_imagenCASA" src="./A4/CASA.png"/>
+<img id="a4_imagenMano" src="./A4/MANO.png"/>
+<img id="a4_imagenOVNI" src="./A4/OVNI.png"/>
+<img id="a5_imagenALGUN" src="./A5/ALGUN.png"/>
+<img id="a5_imagenDIA" src="./A5/DIA.png"/>
+<img id="a5_imagenVOLVERE" src="./A5/VOLVERE.png"/>
+<img id="a5_imagenA" src="./A5/A.png"/>
+<img id="a5_imagenVERLA" src="./A5/VERLA.png"/>
+<img id="a5_imagenMano" src="./A5/MANO.png"/>
+<img id="a5_imagenOVNI" src="./A5/OVNI.png"/>
+</a-assets>
+<a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+<!-- A1 -->
+<a-entity id="a1_marcadorA1" mindar-image-target="targetIndex: 0">
+<a-sphere id="a1_puntoLUZ" material="
+                    color: #FFFF66;
+                    opacity: 0;
+                    transparent: true" position="-0.1950 0.1100 -0.01" radius="0.03">
+</a-sphere>
+<a-image height="0.15" id="a1_visualLUZ" material="
+                    transparent: true;
+                    opacity: 1" position="-0.1950 0.1100 0.02" src="#a1_imagenLUZ" width="0.15">
+</a-image>
+<a-image height="0.045" id="a1_visualMano" material="
+                    transparent: true;
+                    opacity: 1" position="-0.1900 0.0300 0.03" src="#a1_imagenMano" width="0.060">
+</a-image>
+<a-sphere id="a1_puntoMIEDO" material="
+                    color: #FFFF66;
+                    opacity: 0;
+                    transparent: true" position="-0.0350 0.0500 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="
+                    property: material.opacity;
+                    from: 0;
+                    to: 1;
+                    dur: 800;
+                    easing: easeOutQuad;
+                    startEvents: aparecer" height="0.15" id="a1_visualMIEDO" material="
+                    transparent: true;
+                    opacity: 0" position="-0.0350 0.0500 0.02" src="#a1_imagenMIEDO" width="0.15">
+</a-image>
+<a-sphere id="a1_puntoRISAS" material="
+                    color: #FFFF66;
+                    opacity: 0;
+                    transparent: true" position="0.1250 0.0950 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="
+                    property: material.opacity;
+                    from: 0;
+                    to: 1;
+                    dur: 800;
+                    easing: easeOutQuad;
+                    startEvents: aparecer" height="0.15" id="a1_visualRISAS" material="
+                    transparent: true;
+                    opacity: 0" position="0.1250 0.0950 0.02" src="#a1_imagenRISAS" width="0.15">
+</a-image>
+<a-plane height="0.10" id="a1_puntoOVNI" material="
+                    shader: flat;
+                    color: #FFFFFF;
+                    transparent: true;
+                    opacity: 0;
+                    side: double;
+                    depthWrite: false" position="0.3700 0.1250 0.06" width="0.18">
+</a-plane>
+<a-image animation__brillo="
+                    property: material.color;
+                    from: #999999;
+                    to: #FFFFFF;
+                    dur: 350;
+                    dir: alternate;
+                    loop: true;
+                    easing: easeInOutSine" height="0.0780" id="a1_visualOVNI" material="
+                    shader: flat;
+                    transparent: true;
+                    opacity: 1" position="0.3700 0.1250 0.05" src="#a1_imagenOVNI" width="0.18">
+</a-image>
+</a-entity>
+<!-- A2 -->
+<a-entity id="a2_marcadorA2" mindar-image-target="targetIndex: 1">
+<a-sphere id="a2_puntoLA" material="
+                    color: #FFFF66;
+                    opacity: 0;
+                    transparent: true" position="0.0600 0.0950 -0.01" radius="0.03">
+</a-sphere>
+<a-image height="0.12" id="a2_visualLA" material="
+                    transparent: true;
+                    opacity: 1" position="0.0600 0.0950 0.02" src="#a2_imagenLA" width="0.12">
+</a-image>
+<a-image height="0.045" id="a2_visualMano" material="
+                    transparent: true;
+                    opacity: 1" position="0.0600 0.0400 0.03" src="#a2_imagenMano" width="0.060">
+</a-image>
+<a-sphere id="a2_puntoLUZ" material="
+                    color: #FFFF66;
+                    opacity: 0;
+                    transparent: true" position="0.1650 0.1200 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="
+                    property: material.opacity;
+                    from: 0;
+                    to: 1;
+                    dur: 800;
+                    easing: easeOutQuad;
+                    startEvents: aparecer" height="0.12" id="a2_visualLUZ" material="
+                    transparent: true;
+                    opacity: 0" position="0.1650 0.1200 0.02" src="#a2_imagenLUZ" width="0.12">
+</a-image>
+<a-sphere id="a2_puntoNOS" material="
+                    color: #FFFF66;
+                    opacity: 0;
+                    transparent: true" position="0.2700 0.2100 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="
+                    property: material.opacity;
+                    from: 0;
+                    to: 1;
+                    dur: 800;
+                    easing: easeOutQuad;
+                    startEvents: aparecer" height="0.12" id="a2_visualNOS" material="
+                    transparent: true;
+                    opacity: 0" position="0.2700 0.2100 0.02" src="#a2_imagenNOS" width="0.12">
+</a-image>
+<a-sphere id="a2_puntoCUIDA" material="
+                    color: #FFFF66;
+                    opacity: 0;
+                    transparent: true" position="0.3900 0.2650 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="
+                    property: material.opacity;
+                    from: 0;
+                    to: 1;
+                    dur: 800;
+                    easing: easeOutQuad;
+                    startEvents: aparecer" height="0.12" id="a2_visualCUIDA" material="
+                    transparent: true;
+                    opacity: 0" position="0.3900 0.2650 0.02" src="#a2_imagenCUIDA" width="0.12">
+</a-image>
+<a-plane height="0.10" id="a2_puntoOVNI" material="
+                    shader: flat;
+                    color: #FFFFFF;
+                    transparent: true;
+                    opacity: 0;
+                    side: double;
+                    depthWrite: false" position="0.3700 0.1150 0.06" width="0.18">
+</a-plane>
+<a-image animation__brillo="
+                    property: material.color;
+                    from: #999999;
+                    to: #FFFFFF;
+                    dur: 350;
+                    dir: alternate;
+                    loop: true;
+                    easing: easeInOutSine" height="0.0780" id="a2_visualOVNI" material="
+                    shader: flat;
+                    transparent: true;
+                    opacity: 1" position="0.3700 0.1150 0.05" src="#a2_imagenOVNI" width="0.18">
+</a-image>
+</a-entity>
+<!-- A3 -->
+<a-entity id="a3_marcadorA3" mindar-image-target="targetIndex: 2">
+<a-sphere id="a3_puntoALAMO" material="
+                    color: #FFFF66;
+                    opacity: 0;
+                    transparent: true" position="-0.2450 0.0500 -0.01" radius="0.03">
+</a-sphere>
+<a-image height="0.15" id="a3_visualALAMO" material="
+                    transparent: true;
+                    opacity: 1" position="-0.2450 0.0500 0.02" src="#a3_imagenALAMO" width="0.15">
+</a-image>
+<a-image height="0.045" id="a3_visualMano" material="
+                    transparent: true;
+                    opacity: 1" position="-0.2400 -0.0200 0.03" src="#a3_imagenMano" width="0.060">
+</a-image>
+<a-sphere id="a3_puntoPERROS" material="
+                    color: #FFFF66;
+                    opacity: 0;
+                    transparent: true" position="-0.0650 0.1150 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="
+                    property: material.opacity;
+                    from: 0;
+                    to: 1;
+                    dur: 800;
+                    easing: easeOutQuad;
+                    startEvents: aparecer" height="0.15" id="a3_visualPERROS" material="
+                    transparent: true;
+                    opacity: 0" position="-0.0650 0.1150 0.02" src="#a3_imagenPERROS" width="0.15">
+</a-image>
+<a-sphere id="a3_puntoSILENCIO" material="
+                    color: #FFFF66;
+                    opacity: 0;
+                    transparent: true" position="0.1550 0.2050 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="
+                    property: material.opacity;
+                    from: 0;
+                    to: 1;
+                    dur: 800;
+                    easing: easeOutQuad;
+                    startEvents: aparecer" height="0.15" id="a3_visualSILENCIO" material="
+                    transparent: true;
+                    opacity: 0" position="0.1550 0.2050 0.02" src="#a3_imagenSILENCIO" width="0.15">
+</a-image>
+<a-plane height="0.10" id="a3_puntoOVNI" material="
+                    shader: flat;
+                    color: #FFFFFF;
+                    transparent: true;
+                    opacity: 0;
+                    side: double;
+                    depthWrite: false" position="0.3800 0.1200 0.06" width="0.18">
+</a-plane>
+<a-image animation__brillo="
+                    property: material.color;
+                    from: #999999;
+                    to: #FFFFFF;
+                    dur: 350;
+                    dir: alternate;
+                    loop: true;
+                    easing: easeInOutSine" height="0.052" id="a3_visualOVNI" material="
+                    shader: flat;
+                    transparent: true;
+                    opacity: 1" position="0.3650 0.1250 0.05" src="#a3_imagenOVNI" width="0.12">
+</a-image>
+</a-entity>
+<!-- A4 -->
+<a-entity id="a4_marcadorA4" mindar-image-target="targetIndex: 3">
+<a-sphere id="a4_puntoLLEGAMOS" material="
+                    color: #FFFF66;
+                    opacity: 0;
+                    transparent: true" position="-0.2550 0.1000 -0.01" radius="0.03">
+</a-sphere>
+<a-image height="0.15" id="a4_visualLLEGAMOS" material="
+                    transparent: true;
+                    opacity: 1" position="-0.2550 0.1000 0.02" src="#a4_imagenLLEGAMOS" width="0.15">
+</a-image>
+<a-image height="0.045" id="a4_visualMano" material="
+                    transparent: true;
+                    opacity: 1" position="-0.2500 0.0250 0.03" src="#a4_imagenMano" width="0.060">
+</a-image>
+<a-sphere id="a4_puntoBIEN" material="
+                    color: #FFFF66;
+                    opacity: 0;
+                    transparent: true" position="-0.1000 0.2500 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="
+                    property: material.opacity;
+                    from: 0;
+                    to: 1;
+                    dur: 800;
+                    easing: easeOutQuad;
+                    startEvents: aparecer" height="0.15" id="a4_visualBIEN" material="
+                    transparent: true;
+                    opacity: 0" position="-0.1000 0.2500 0.02" src="#a4_imagenBIEN" width="0.15">
+</a-image>
+<a-sphere id="a4_puntoA" material="
+                    color: #FFFF66;
+                    opacity: 0;
+                    transparent: true" position="0.0350 0.0550 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="
+                    property: material.opacity;
+                    from: 0;
+                    to: 1;
+                    dur: 800;
+                    easing: easeOutQuad;
+                    startEvents: aparecer" height="0.15" id="a4_visualA" material="
+                    transparent: true;
+                    opacity: 0" position="0.0350 0.0550 0.02" src="#a4_imagenA" width="0.15">
+</a-image>
+<a-sphere id="a4_puntoCASA" material="
+                    color: #FFFF66;
+                    opacity: 0;
+                    transparent: true" position="0.2200 0.1000 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="
+                    property: material.opacity;
+                    from: 0;
+                    to: 1;
+                    dur: 800;
+                    easing: easeOutQuad;
+                    startEvents: aparecer" height="0.15" id="a4_visualCASA" material="
+                    transparent: true;
+                    opacity: 0" position="0.2200 0.1000 0.02" src="#a4_imagenCASA" width="0.15">
+</a-image>
+<a-plane height="0.10" id="a4_puntoOVNI" material="
+                    shader: flat;
+                    color: #FFFFFF;
+                    transparent: true;
+                    opacity: 0;
+                    side: double;
+                    depthWrite: false" position="-0.3600 0.2900 0.06" width="0.20">
+</a-plane>
+<a-image animation__brillo="
+                    property: material.color;
+                    from: #999999;
+                    to: #FFFFFF;
+                    dur: 350;
+                    dir: alternate;
+                    loop: true;
+                    easing: easeInOutSine" height="0.087" id="a4_visualOVNI" material="
+                    shader: flat;
+                    transparent: true;
+                    opacity: 1" position="-0.3600 0.2900 0.05" src="#a4_imagenOVNI" width="0.20">
+</a-image>
+</a-entity>
+<!-- A5 -->
+<a-entity id="a5_marcadorA5" mindar-image-target="targetIndex: 4">
+<a-sphere id="a5_puntoALGUN" material="
+                    color: #FFFF66;
+                    opacity: 0;
+                    transparent: true" position="-0.4450 0.0150 -0.01" radius="0.03">
+</a-sphere>
+<a-image height="0.15" id="a5_visualALGUN" material="
+                    transparent: true;
+                    opacity: 1" position="-0.4450 0.0150 0.02" src="#a5_imagenALGUN" width="0.15">
+</a-image>
+<a-image height="0.045" id="a5_visualMano" material="
+                    transparent: true;
+                    opacity: 1" position="-0.4450 -0.0600 0.03" src="#a5_imagenMano" width="0.060">
+</a-image>
+<a-sphere id="a5_puntoDIA" material="
+                    color: #FFFF66;
+                    opacity: 0;
+                    transparent: true" position="-0.2750 -0.0250 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="
+                    property: material.opacity;
+                    from: 0;
+                    to: 1;
+                    dur: 800;
+                    easing: easeOutQuad;
+                    startEvents: aparecer" height="0.15" id="a5_visualDIA" material="
+                    transparent: true;
+                    opacity: 0" position="-0.2750 -0.0250 0.02" src="#a5_imagenDIA" width="0.15">
+</a-image>
+<a-sphere id="a5_puntoVOLVERE" material="
+                    color: #FFFF66;
+                    opacity: 0;
+                    transparent: true" position="-0.1500 -0.0650 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="
+                    property: material.opacity;
+                    from: 0;
+                    to: 1;
+                    dur: 800;
+                    easing: easeOutQuad;
+                    startEvents: aparecer" height="0.15" id="a5_visualVOLVERE" material="
+                    transparent: true;
+                    opacity: 0" position="-0.1500 -0.0650 0.02" src="#a5_imagenVOLVERE" width="0.15">
+</a-image>
+<a-sphere id="a5_puntoA" material="
+                    color: #FFFF66;
+                    opacity: 0;
+                    transparent: true" position="-0.0700 0.0250 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="
+                    property: material.opacity;
+                    from: 0;
+                    to: 1;
+                    dur: 800;
+                    easing: easeOutQuad;
+                    startEvents: aparecer" height="0.15" id="a5_visualA" material="
+                    transparent: true;
+                    opacity: 0" position="-0.0700 0.0250 0.02" src="#a5_imagenA" width="0.15">
+</a-image>
+<a-sphere id="a5_puntoVERLA" material="
+                    color: #FFFF66;
+                    opacity: 0;
+                    transparent: true" position="0.0250 -0.0300 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="
+                    property: material.opacity;
+                    from: 0;
+                    to: 1;
+                    dur: 800;
+                    easing: easeOutQuad;
+                    startEvents: aparecer" height="0.15" id="a5_visualVERLA" material="
+                    transparent: true;
+                    opacity: 0" position="0.0250 -0.0300 0.02" src="#a5_imagenVERLA" width="0.15">
+</a-image>
+<a-plane height="0.065" id="a5_puntoOVNI" material="
+                    shader: flat;
+                    color: #FFFFFF;
+                    transparent: true;
+                    opacity: 0;
+                    side: double;
+                    depthWrite: false" position="0.1550 0.2850 0.06" width="0.12">
+</a-plane>
+<a-image animation__brillo="
+                    property: material.color;
+                    from: #999999;
+                    to: #FFFFFF;
+                    dur: 350;
+                    dir: alternate;
+                    loop: true;
+                    easing: easeInOutSine" height="0.052" id="a5_visualOVNI" material="
+                    shader: flat;
+                    transparent: true;
+                    opacity: 1" position="0.1550 0.2850 0.05" src="#a5_imagenOVNI" width="0.12">
+</a-image>
+</a-entity>
+</a-scene>
+<script>
+// ===== Página A1 =====
+(function () {
+
+
+        const escena =
+            document.querySelector("a-scene");
+
+        escena.addEventListener("loaded", function () {
+
+            const canvas =
+                escena.renderer.domElement;
+
+            const camera =
+                escena.camera;
+
+            const puntoLUZ =
+                document.querySelector("#a1_puntoLUZ");
+
+            const puntoMIEDO =
+                document.querySelector("#a1_puntoMIEDO");
+
+            const puntoRISAS =
+                document.querySelector("#a1_puntoRISAS");
+
+            const puntoOVNI =
+                document.querySelector("#a1_puntoOVNI");
+
+            const visualOVNI =
+                document.querySelector("#a1_visualOVNI");
+
+            const marcadorA1 =
+                document.querySelector("#a1_marcadorA1");
+
+            const audioOVNI =
+                document.querySelector("#a1_audioOVNI");
+
+
+            function reproducirAudio(id) {
+
+                const audio =
+                    document.querySelector(id);
+
+                if (!audio) {
+                    console.error(
+                        "No se encontró el audio:",
+                        id
+                    );
+                    return;
+                }
+
+                audio.pause();
+
+                audio.currentTime = 0;
+
+                audio.play().catch(function (error) {
+
+                    console.log(
+                        "Error reproduciendo " + id,
+                        error
+                    );
+
+                });
+            }
+
+
+            function reproducirOVNI() {
+
+                audioOVNI.pause();
+
+                audioOVNI.currentTime = 0;
+
+                audioOVNI.play().catch(function (error) {
+
+                    console.log(
+                        "Error reproduciendo OVNI:",
+                        error
+                    );
+
+                });
+            }
+
+
+            const raycaster =
+                new THREE.Raycaster();
+
+            const mouse =
+                new THREE.Vector2();
+
+
+            let pasoAlba = 0;
+
+
+            canvas.addEventListener(
+                "pointerdown",
+                function (evento) {
+
+
+                    if (!marcadorA1.object3D.visible) {
+                        return;
+                    }
+
+
+                    const rect =
+                        canvas.getBoundingClientRect();
+
+                    mouse.x =
+                        ((evento.clientX - rect.left) /
+                        rect.width) * 2 - 1;
+
+                    mouse.y =
+                        -((evento.clientY - rect.top) /
+                        rect.height) * 2 + 1;
+
+
+
+                    raycaster.setFromCamera(
+                        mouse,
+                        camera
+                    );
+
+
+
+                    const objetos = [
+
+                        puntoLUZ.object3D,
+                        puntoMIEDO.object3D,
+                        puntoRISAS.object3D,
+                        puntoOVNI.object3D
+
+                    ];
+
+                    const intersecciones =
+                        raycaster.intersectObjects(
+                            objetos,
+                            true
+                        );
+
+
+                    if (intersecciones.length === 0) {
+                        return;
+                    }
+
+
+                    const objetoTocado =
+                        intersecciones[0].object.el;
+
+                    if (!objetoTocado) {
+                        return;
+                    }
+
+                    if (
+                        objetoTocado.id === "a1_puntoLUZ"
+                    ) {
+
+                        reproducirAudio("#a1_audioLUZ");
+
+                        if (pasoAlba === 0) {
+
+                            document.querySelector("#a1_visualMIEDO")
+                                .emit("aparecer");
+
+                            pasoAlba = 1;
+                        }
+                    }
+
+
+                    else if (
+                        objetoTocado.id === "a1_puntoMIEDO"
+                    ) {
+
+                        if (pasoAlba >= 1) {
+
+                            reproducirAudio("#a1_audioMIEDO");
+                        }
+
+                        if (pasoAlba === 1) {
+
+                            document.querySelector("#a1_visualRISAS")
+                                .emit("aparecer");
+
+                            pasoAlba = 2;
+                        }
+                    }
+
+
+                    else if (
+                        objetoTocado.id === "a1_puntoRISAS"
+                    ) {
+
+                        if (pasoAlba >= 2) {
+
+                            reproducirAudio("#a1_audioRISAS");
+                        }
+                    }
+
+                    else if (
+                        objetoTocado.id === "a1_puntoOVNI"
+                    ) {
+
+                        reproducirOVNI();
+
+                    }
+
+                }
+            );
+
+            marcadorA1.addEventListener(
+                "targetLost",
+                function () {
+
+
+                }
+            );
+
+        });
+
+    
+})();
+// ===== Página A2 =====
+(function () {
+
+
+        const escena =
+            document.querySelector("a-scene");
+
+        escena.addEventListener("loaded", function () {
+
+            const canvas =
+                escena.renderer.domElement;
+
+            const camera =
+                escena.camera;
+
+            const puntoLA =
+                document.querySelector("#a2_puntoLA");
+
+            const puntoLUZ =
+                document.querySelector("#a2_puntoLUZ");
+
+            const puntoNOS =
+                document.querySelector("#a2_puntoNOS");
+
+            const puntoCUIDA =
+                document.querySelector("#a2_puntoCUIDA");
+
+            const puntoOVNI =
+                document.querySelector("#a2_puntoOVNI");
+
+            const visualLA =
+                document.querySelector("#a2_visualLA");
+
+            const visualLUZ =
+                document.querySelector("#a2_visualLUZ");
+
+            const visualNOS =
+                document.querySelector("#a2_visualNOS");
+
+            const visualCUIDA =
+                document.querySelector("#a2_visualCUIDA");
+
+            const visualMano =
+                document.querySelector("#a2_visualMano");
+
+            const visualOVNI =
+                document.querySelector("#a2_visualOVNI");
+
+            const marcadorA2 =
+                document.querySelector("#a2_marcadorA2");
+
+            const audioOVNI =
+                document.querySelector("#a2_audioOVNI");
+
+            function reproducirAudio(id) {
+
+                const audio =
+                    document.querySelector(id);
+
+                if (!audio) {
+
+                    console.error(
+                        "No se encontró el audio:",
+                        id
+                    );
+
+                    return;
+                }
+
+                audio.pause();
+                audio.currentTime = 0;
+
+                audio.play().catch(function (error) {
+
+                    console.log(
+                        "Error reproduciendo " + id,
+                        error
+                    );
+                });
+            }
+
+            function reproducirOVNI() {
+
+                audioOVNI.pause();
+                audioOVNI.currentTime = 0;
+
+                audioOVNI.play().catch(function (error) {
+
+                    console.log(
+                        "Error reproduciendo OVNI:",
+                        error
+                    );
+                });
+            }
+
+            const raycaster =
+                new THREE.Raycaster();
+
+            const mouse =
+                new THREE.Vector2();
+
+            let pasoAlba = 0;
+
+            canvas.addEventListener(
+                "pointerdown",
+                function (evento) {
+
+                    if (!marcadorA2.object3D.visible) {
+                        return;
+                    }
+
+
+                    // COORDENADAS DEL TOQUE
+
+                    const rect =
+                        canvas.getBoundingClientRect();
+
+                    mouse.x =
+                        ((evento.clientX - rect.left) /
+                        rect.width) * 2 - 1;
+
+                    mouse.y =
+                        -((evento.clientY - rect.top) /
+                        rect.height) * 2 + 1;
+
+
+                    raycaster.setFromCamera(
+                        mouse,
+                        camera
+                    );
+
+
+                    const objetos = [
+
+                        puntoLA.object3D,
+                        puntoLUZ.object3D,
+                        puntoNOS.object3D,
+                        puntoCUIDA.object3D,
+                        puntoOVNI.object3D
+
+                    ];
+
+
+                    const intersecciones =
+                        raycaster.intersectObjects(
+                            objetos,
+                            true
+                        );
+
+
+                    if (intersecciones.length === 0) {
+                        return;
+                    }
+
+
+                    const objetoTocado =
+                        intersecciones[0].object.el;
+
+                    if (!objetoTocado) {
+                        return;
+                    }
+
+                    if (
+                        objetoTocado.id === "a2_puntoLA"
+                    ) {
+
+                        reproducirAudio("#a2_audioLA");
+
+                        if (pasoAlba === 0) {
+
+                            visualLUZ.emit("aparecer");
+
+                            pasoAlba = 1;
+                        }
+                    }
+
+                    else if (
+                        objetoTocado.id === "a2_puntoLUZ"
+                    ) {
+
+                        if (pasoAlba >= 1) {
+
+                            reproducirAudio("#a2_audioLUZ");
+                        }
+
+                        if (pasoAlba === 1) {
+
+                            visualNOS.emit("aparecer");
+
+                            pasoAlba = 2;
+                        }
+                    }
+
+                    else if (
+                        objetoTocado.id === "a2_puntoNOS"
+                    ) {
+
+                        if (pasoAlba >= 2) {
+
+                            reproducirAudio("#a2_audioNOS");
+                        }
+
+                        if (pasoAlba === 2) {
+
+                            visualCUIDA.emit("aparecer");
+
+                            pasoAlba = 3;
+                        }
+                    }
+
+                    else if (
+                        objetoTocado.id === "a2_puntoCUIDA"
+                    ) {
+
+                        if (pasoAlba >= 3) {
+
+                            reproducirAudio("#a2_audioCUIDA");
+                        }
+                    }
+
+                    else if (
+                        objetoTocado.id === "a2_puntoOVNI"
+                    ) {
+
+                        reproducirOVNI();
+                    }
+
+                }
+            );
+
+            marcadorA2.addEventListener(
+                "targetLost",
+                function () {
+
+                }
+            );
+
+        });
+
+    
+})();
+// ===== Página A3 =====
+(function () {
+
+
+        const escena =
+            document.querySelector("a-scene");
+
+        escena.addEventListener("loaded", function () {
+
+            const canvas =
+                escena.renderer.domElement;
+
+            const camera =
+                escena.camera;
+
+            const puntoALAMO =
+                document.querySelector("#a3_puntoALAMO");
+
+            const puntoPERROS =
+                document.querySelector("#a3_puntoPERROS");
+
+            const puntoSILENCIO =
+                document.querySelector("#a3_puntoSILENCIO");
+
+            const puntoOVNI =
+                document.querySelector("#a3_puntoOVNI");
+
+            const visualALAMO =
+                document.querySelector("#a3_visualALAMO");
+
+            const visualPERROS =
+                document.querySelector("#a3_visualPERROS");
+
+            const visualSILENCIO =
+                document.querySelector("#a3_visualSILENCIO");
+
+            const visualMano =
+                document.querySelector("#a3_visualMano");
+
+            const visualOVNI =
+                document.querySelector("#a3_visualOVNI");
+
+            const marcadorA3 =
+                document.querySelector("#a3_marcadorA3");
+
+            const audioOVNI =
+                document.querySelector("#a3_audioOVNI");
+
+            function reproducirAudio(id) {
+
+                const audio =
+                    document.querySelector(id);
+
+                if (!audio) {
+
+                    console.error(
+                        "No se encontró el audio:",
+                        id
+                    );
+
+                    return;
+                }
+
+                audio.pause();
+                audio.currentTime = 0;
+
+                audio.play().catch(function (error) {
+
+                    console.log(
+                        "Error reproduciendo " + id,
+                        error
+                    );
+                });
+            }
+
+            function reproducirOVNI() {
+
+                audioOVNI.pause();
+                audioOVNI.currentTime = 0;
+
+                audioOVNI.play().catch(function (error) {
+
+                    console.log(
+                        "Error reproduciendo OVNI:",
+                        error
+                    );
+                });
+            }
+
+            const raycaster =
+                new THREE.Raycaster();
+
+            const mouse =
+                new THREE.Vector2();
+
+            let pasoAlba = 0;
+
+            canvas.addEventListener(
+                "pointerdown",
+                function (evento) {
+
+                    if (!marcadorA3.object3D.visible) {
+                        return;
+                    }
+
+                    const rect =
+                        canvas.getBoundingClientRect();
+
+                    mouse.x =
+                        ((evento.clientX - rect.left) /
+                        rect.width) * 2 - 1;
+
+                    mouse.y =
+                        -((evento.clientY - rect.top) /
+                        rect.height) * 2 + 1;
+
+
+                    raycaster.setFromCamera(
+                        mouse,
+                        camera
+                    );
+
+
+                    const objetos = [
+
+                        puntoALAMO.object3D,
+                        puntoPERROS.object3D,
+                        puntoSILENCIO.object3D,
+                        puntoOVNI.object3D
+
+                    ];
+
+
+                    const intersecciones =
+                        raycaster.intersectObjects(
+                            objetos,
+                            true
+                        );
+
+
+                    if (intersecciones.length === 0) {
+                        return;
+                    }
+
+
+                    const objetoTocado =
+                        intersecciones[0].object.el;
+
+                    if (!objetoTocado) {
+                        return;
+                    }
+
+                    if (
+                        objetoTocado.id === "a3_puntoALAMO"
+                    ) {
+
+                        reproducirAudio("#a3_audioALAMO");
+
+                        if (pasoAlba === 0) {
+
+                            visualPERROS.emit("aparecer");
+
+                            pasoAlba = 1;
+                        }
+                    }
+
+                    else if (
+                        objetoTocado.id === "a3_puntoPERROS"
+                    ) {
+
+                        if (pasoAlba >= 1) {
+
+                            reproducirAudio("#a3_audioPERROS");
+                        }
+
+                        if (pasoAlba === 1) {
+
+                            visualSILENCIO.emit("aparecer");
+
+                            pasoAlba = 2;
+                        }
+                    }
+
+                    else if (
+                        objetoTocado.id === "a3_puntoSILENCIO"
+                    ) {
+
+                        if (pasoAlba >= 2) {
+
+                            reproducirAudio("#a3_audioSILENCIO");
+                        }
+                    }
+
+                    else if (
+                        objetoTocado.id === "a3_puntoOVNI"
+                    ) {
+
+                        reproducirOVNI();
+                    }
+
+                }
+            );
+
+            marcadorA3.addEventListener(
+                "targetLost",
+                function () {
+
+                }
+            );
+
+        });
+
+    
+})();
+// ===== Página A4 =====
+(function () {
+
+
+        const escena = document.querySelector("a-scene");
+
+        escena.addEventListener("loaded", function () {
+
+            const canvas = escena.renderer.domElement;
+            const camera = escena.camera;
+
+            const puntoLLEGAMOS = document.querySelector("#a4_puntoLLEGAMOS");
+            const puntoBIEN = document.querySelector("#a4_puntoBIEN");
+            const puntoA = document.querySelector("#a4_puntoA");
+            const puntoCASA = document.querySelector("#a4_puntoCASA");
+            const puntoOVNI = document.querySelector("#a4_puntoOVNI");
+
+            const visualLLEGAMOS = document.querySelector("#a4_visualLLEGAMOS");
+            const visualBIEN = document.querySelector("#a4_visualBIEN");
+            const visualA = document.querySelector("#a4_visualA");
+            const visualCASA = document.querySelector("#a4_visualCASA");
+            const visualMano = document.querySelector("#a4_visualMano");
+            const visualOVNI = document.querySelector("#a4_visualOVNI");
+
+            const marcadorA4 = document.querySelector("#a4_marcadorA4");
+            const audioOVNI = document.querySelector("#a4_audioOVNI");
+
+            function reproducirAudio(id) {
+
+                const audio = document.querySelector(id);
+
+                if (!audio) {
+                    console.error("No se encontró el audio:", id);
+                    return;
+                }
+
+                audio.pause();
+                audio.currentTime = 0;
+
+                audio.play().catch(function (error) {
+                    console.log("Error reproduciendo " + id, error);
+                });
+            }
+
+            function reproducirOVNI() {
+
+                audioOVNI.pause();
+                audioOVNI.currentTime = 0;
+
+                audioOVNI.play().catch(function (error) {
+                    console.log("Error reproduciendo OVNI:", error);
+                });
+            }
+
+            const raycaster = new THREE.Raycaster();
+            const mouse = new THREE.Vector2();
+
+            let pasoAlba = 0;
+
+            canvas.addEventListener("pointerdown", function (evento) {
+
+                if (!marcadorA4.object3D.visible) {
+                    return;
+                }
+
+                const rect = canvas.getBoundingClientRect();
+
+                mouse.x =
+                    ((evento.clientX - rect.left) / rect.width) * 2 - 1;
+
+                mouse.y =
+                    -((evento.clientY - rect.top) / rect.height) * 2 + 1;
+
+                raycaster.setFromCamera(mouse, camera);
+
+                const objetos = [
+                    puntoLLEGAMOS.object3D,
+                    puntoBIEN.object3D,
+                    puntoA.object3D,
+                    puntoCASA.object3D,
+                    puntoOVNI.object3D
+                ];
+
+                const intersecciones =
+                    raycaster.intersectObjects(objetos, true);
+
+                if (intersecciones.length === 0) {
+                    return;
+                }
+
+                const objetoTocado = intersecciones[0].object.el;
+
+                if (!objetoTocado) {
+                    return;
+                }
+
+                if (objetoTocado.id === "a4_puntoLLEGAMOS") {
+
+                    reproducirAudio("#a4_audioLLEGAMOS");
+
+                    if (pasoAlba === 0) {
+                        visualBIEN.emit("aparecer");
+                        pasoAlba = 1;
+                    }
+                }
+
+                else if (objetoTocado.id === "a4_puntoBIEN") {
+
+                    if (pasoAlba >= 1) {
+                        reproducirAudio("#a4_audioBIEN");
+                    }
+
+                    if (pasoAlba === 1) {
+                        visualA.emit("aparecer");
+                        pasoAlba = 2;
+                    }
+                }
+
+                else if (objetoTocado.id === "a4_puntoA") {
+
+                    if (pasoAlba >= 2) {
+                        reproducirAudio("#a4_audioA");
+                    }
+
+                    if (pasoAlba === 2) {
+                        visualCASA.emit("aparecer");
+                        pasoAlba = 3;
+                    }
+                }
+
+                else if (objetoTocado.id === "a4_puntoCASA") {
+
+                    if (pasoAlba >= 3) {
+                        reproducirAudio("#a4_audioCASA");
+                    }
+                }
+
+                else if (objetoTocado.id === "a4_puntoOVNI") {
+
+                    reproducirOVNI();
+                }
+
+            });
+
+            marcadorA4.addEventListener("targetLost", function () {
+            });
+
+        });
+
+    
+})();
+// ===== Página A5 =====
+(function () {
+
+
+        const escena = document.querySelector("a-scene");
+
+        escena.addEventListener("loaded", function () {
+
+            const canvas = escena.renderer.domElement;
+            const camera = escena.camera;
+
+            const puntoALGUN = document.querySelector("#a5_puntoALGUN");
+            const puntoDIA = document.querySelector("#a5_puntoDIA");
+            const puntoVOLVERE = document.querySelector("#a5_puntoVOLVERE");
+            const puntoA = document.querySelector("#a5_puntoA");
+            const puntoVERLA = document.querySelector("#a5_puntoVERLA");
+            const puntoOVNI = document.querySelector("#a5_puntoOVNI");
+
+            const visualALGUN = document.querySelector("#a5_visualALGUN");
+            const visualDIA = document.querySelector("#a5_visualDIA");
+            const visualVOLVERE = document.querySelector("#a5_visualVOLVERE");
+            const visualA = document.querySelector("#a5_visualA");
+            const visualVERLA = document.querySelector("#a5_visualVERLA");
+            const visualMano = document.querySelector("#a5_visualMano");
+            const visualOVNI = document.querySelector("#a5_visualOVNI");
+
+            const marcadorA5 = document.querySelector("#a5_marcadorA5");
+            const audioOVNI = document.querySelector("#a5_audioOVNI");
+
+            function reproducirAudio(id) {
+
+                const audio = document.querySelector(id);
+
+                if (!audio) {
+                    console.error("No se encontró el audio:", id);
+                    return;
+                }
+
+                audio.pause();
+                audio.currentTime = 0;
+
+                audio.play().catch(function (error) {
+                    console.log("Error reproduciendo " + id, error);
+                });
+            }
+
+            function reproducirOVNI() {
+
+                audioOVNI.pause();
+                audioOVNI.currentTime = 0;
+
+                audioOVNI.play().catch(function (error) {
+                    console.log("Error reproduciendo OVNI:", error);
+                });
+            }
+
+            const raycaster = new THREE.Raycaster();
+            const mouse = new THREE.Vector2();
+
+            let pasoAlba = 0;
+
+            canvas.addEventListener("pointerdown", function (evento) {
+
+                if (!marcadorA5.object3D.visible) {
+                    return;
+                }
+
+                const rect = canvas.getBoundingClientRect();
+
+                mouse.x =
+                    ((evento.clientX - rect.left) / rect.width) * 2 - 1;
+
+                mouse.y =
+                    -((evento.clientY - rect.top) / rect.height) * 2 + 1;
+
+                raycaster.setFromCamera(mouse, camera);
+
+                const objetos = [
+                    puntoALGUN.object3D,
+                    puntoDIA.object3D,
+                    puntoVOLVERE.object3D,
+                    puntoA.object3D,
+                    puntoVERLA.object3D,
+                    puntoOVNI.object3D
+                ];
+
+                const intersecciones =
+                    raycaster.intersectObjects(objetos, true);
+
+                if (intersecciones.length === 0) {
+                    return;
+                }
+
+                const objetoTocado = intersecciones[0].object.el;
+
+                if (!objetoTocado) {
+                    return;
+                }
+
+                if (objetoTocado.id === "a5_puntoALGUN") {
+
+                    reproducirAudio("#a5_audioALGUN");
+
+                    if (pasoAlba === 0) {
+                        visualDIA.emit("aparecer");
+                        pasoAlba = 1;
+                    }
+                }
+
+                else if (objetoTocado.id === "a5_puntoDIA") {
+
+                    if (pasoAlba >= 1) {
+                        reproducirAudio("#a5_audioDIA");
+                    }
+
+                    if (pasoAlba === 1) {
+                        visualVOLVERE.emit("aparecer");
+                        pasoAlba = 2;
+                    }
+                }
+
+                else if (objetoTocado.id === "a5_puntoVOLVERE") {
+
+                    if (pasoAlba >= 2) {
+                        reproducirAudio("#a5_audioVOLVERE");
+                    }
+
+                    if (pasoAlba === 2) {
+                        visualA.emit("aparecer");
+                        pasoAlba = 3;
+                    }
+                }
+
+                else if (objetoTocado.id === "a5_puntoA") {
+
+                    if (pasoAlba >= 3) {
+                        reproducirAudio("#a5_audioA");
+                    }
+
+                    if (pasoAlba === 3) {
+                        visualVERLA.emit("aparecer");
+                        pasoAlba = 4;
+                    }
+                }
+
+                else if (objetoTocado.id === "a5_puntoVERLA") {
+
+                    if (pasoAlba >= 4) {
+                        reproducirAudio("#a5_audioVERLA");
+                    }
+                }
+
+                else if (objetoTocado.id === "a5_puntoOVNI") {
+
+                    reproducirOVNI();
+                }
+
+            });
+
+            marcadorA5.addEventListener("targetLost", function () {
+            });
+
+        });
+
+    
+})();
+</script>
+</body>
+</html>

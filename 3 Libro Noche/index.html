@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Libro Noche - RA</title>
+
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+</head>
+
+<body>
+
+<!-- ========================= -->
+<!-- AUDIOS N1 -->
+<!-- ========================= -->
+<audio id="audioN1C" src="./N1/C.mp3" preload="auto"></audio>
+<audio id="audioN1R" src="./N1/R.mp3" preload="auto"></audio>
+<audio id="audioN1I" src="./N1/I.mp3" preload="auto"></audio>
+<audio id="audioN1CriCri" src="./N1/cricri.mp3" preload="auto"></audio>
+
+<!-- ========================= -->
+<!-- AUDIOS N2 -->
+<!-- ========================= -->
+<audio id="audioN2L" src="./N2/L.mp3" preload="auto"></audio>
+<audio id="audioN2U" src="./N2/U.mp3" preload="auto"></audio>
+<audio id="audioN2N" src="./N2/N.mp3" preload="auto"></audio>
+<audio id="audioN2A" src="./N2/A.mp3" preload="auto"></audio>
+<audio id="audioN2Z" src="./N2/Z.mp3" preload="auto"></audio>
+<audio id="audioN2Luna" src="./N2/LUNA.mp3" preload="auto"></audio>
+<audio id="audioN2Luz" src="./N2/LUZ.mp3" preload="auto"></audio>
+
+<!-- ========================= -->
+<!-- AUDIOS N3 -->
+<!-- ========================= -->
+<audio id="audioN3M" src="./N3/M.mp3" preload="auto"></audio>
+<audio id="audioN3I" src="./N3/I.mp3" preload="auto"></audio>
+<audio id="audioN3E" src="./N3/E.mp3" preload="auto"></audio>
+<audio id="audioN3D" src="./N3/D.mp3" preload="auto"></audio>
+<audio id="audioN3O" src="./N3/O.mp3" preload="auto"></audio>
+<audio id="audioN3Miedo" src="./N3/MIEDO.mp3" preload="auto"></audio>
+
+<!-- ========================= -->
+<!-- AUDIOS N4 -->
+<!-- ========================= -->
+<audio id="audioN4N" src="./N4/N.mp3" preload="auto"></audio>
+<audio id="audioN4O" src="./N4/O.mp3" preload="auto"></audio>
+<audio id="audioN4C" src="./N4/C.mp3" preload="auto"></audio>
+<audio id="audioN4H" src="./N4/H.mp3" preload="auto"></audio>
+<audio id="audioN4E" src="./N4/E.mp3" preload="auto"></audio>
+<audio id="audioN4Noche" src="./N4/NOCHE.mp3" preload="auto"></audio>
+<audio id="audioN4Ji" src="./N4/jijiji.mp3" preload="auto"></audio>
+
+<!-- ========================= -->
+<!-- AUDIOS N5 -->
+<!-- ========================= -->
+<audio id="audioN5S" src="./N5/S.mp3" preload="auto"></audio>
+<audio id="audioN5I" src="./N5/I.mp3" preload="auto"></audio>
+<audio id="audioN5L" src="./N5/L.mp3" preload="auto"></audio>
+<audio id="audioN5E" src="./N5/E.mp3" preload="auto"></audio>
+<audio id="audioN5N" src="./N5/N.mp3" preload="auto"></audio>
+<audio id="audioN5C" src="./N5/C.mp3" preload="auto"></audio>
+<audio id="audioN5O" src="./N5/O.mp3" preload="auto"></audio>
+<audio id="audioN5Silencio" src="./N5/SILENCIO.mp3" preload="auto"></audio>
+
+<a-scene
+    mindar-image="imageTargetSrc: ./targets.mind;"
+    color-space="sRGB"
+    renderer="colorManagement: true, physicallyCorrectLights"
+    vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: false">
+
+    <a-assets>
+        <!-- N1 -->
+        <img id="imagenN1C" src="./N1/C.png">
+        <img id="imagenN1R" src="./N1/R.png">
+        <img id="imagenN1I" src="./N1/I.png">
+        <img id="imagenN1Cri1" src="./N1/cri1.png">
+        <img id="imagenN1Cri2" src="./N1/cri2.png">
+        <img id="imagenN1Cri3" src="./N1/cri3.png">
+        <img id="imagenN1Cri4" src="./N1/cri4.png">
+        <img id="imagenN1Mano" src="./N1/mano.png">
+
+        <!-- N2 -->
+        <img id="imagenN2L1" src="./N2/L1.png">
+        <img id="imagenN2U1" src="./N2/U1.png">
+        <img id="imagenN2N" src="./N2/N.png">
+        <img id="imagenN2A" src="./N2/A.png">
+        <img id="imagenN2Luna" src="./N2/LUNA.png">
+        <img id="imagenN2L2" src="./N2/L2.png">
+        <img id="imagenN2U2" src="./N2/U2.png">
+        <img id="imagenN2Z" src="./N2/Z.png">
+        <img id="imagenN2Luz" src="./N2/LUZ.png">
+        <img id="imagenN2Mano1" src="./N2/mano1.png">
+        <img id="imagenN2Mano2" src="./N2/mano2.png">
+
+        <!-- N3 -->
+        <img id="imagenN3M" src="./N3/M.png">
+        <img id="imagenN3I" src="./N3/I.png">
+        <img id="imagenN3E" src="./N3/E.png">
+        <img id="imagenN3D" src="./N3/D.png">
+        <img id="imagenN3O" src="./N3/O.png">
+        <img id="imagenN3Miedo" src="./N3/MIEDO.png">
+        <img id="imagenN3Mano" src="./N3/mano.png">
+
+        <!-- N4 -->
+        <img id="imagenN4N" src="./N4/N.png">
+        <img id="imagenN4O" src="./N4/O.png">
+        <img id="imagenN4C" src="./N4/C.png">
+        <img id="imagenN4H" src="./N4/H.png">
+        <img id="imagenN4E" src="./N4/E.png">
+        <img id="imagenN4Noche" src="./N4/NOCHE.png">
+        <img id="imagenN4Ji1" src="./N4/ji1.png">
+        <img id="imagenN4Ji2" src="./N4/ji2.png">
+        <img id="imagenN4Ji3" src="./N4/ji3.png">
+        <img id="imagenN4Mano" src="./N4/mano.png">
+
+        <!-- N5 -->
+        <img id="imagenN5S" src="./N5/S.png">
+        <img id="imagenN5I1" src="./N5/I1.png">
+        <img id="imagenN5L" src="./N5/L.png">
+        <img id="imagenN5E" src="./N5/E.png">
+        <img id="imagenN5N" src="./N5/N.png">
+        <img id="imagenN5C" src="./N5/C.png">
+        <img id="imagenN5I2" src="./N5/I2.png">
+        <img id="imagenN5O" src="./N5/O.png">
+        <img id="imagenN5Silencio" src="./N5/SILENCIO.png">
+        <img id="imagenN5Mano" src="./N5/mano.png">
+    </a-assets>
+
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+    <!-- ========================= N1 / target 0 ========================= -->
+    <a-entity mindar-image-target="targetIndex: 0">
+        <a-sphere id="puntoN1C" position="-0.4100 -0.1100 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN1C" src="#imagenN1C" position="-0.4100 -0.1100 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 1"></a-image>
+        <a-image id="visualN1Mano" src="#imagenN1Mano" position="-0.4100 -0.1700 0.03" width="0.060" height="0.045" material="transparent: true; opacity: 1"></a-image>
+
+        <a-sphere id="puntoN1R" position="-0.3200 -0.0800 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN1R" src="#imagenN1R" position="-0.3150 -0.0800 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+
+        <a-sphere id="puntoN1I" position="-0.2400 -0.0600 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN1I" src="#imagenN1I" position="-0.2350 -0.0550 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+
+        <a-sphere id="puntoN1Cri1" position="-0.1550 0.2570 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN1Cri1" src="#imagenN1Cri1" position="-0.1550 0.2570 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+
+        <a-sphere id="puntoN1Cri2" position="-0.0310 0.2840 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN1Cri2" src="#imagenN1Cri2" position="-0.0310 0.2840 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+
+        <a-sphere id="puntoN1Cri3" position="-0.0370 0.1420 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN1Cri3" src="#imagenN1Cri3" position="-0.0370 0.1420 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+
+        <a-sphere id="puntoN1Cri4" position="0.0880 0.1740 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN1Cri4" src="#imagenN1Cri4" position="0.0880 0.1740 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+    </a-entity>
+
+    <!-- ========================= N2 / target 1 ========================= -->
+    <a-entity mindar-image-target="targetIndex: 1">
+        <a-sphere id="puntoN2L1" position="-0.1900 0.1900 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN2L1" src="#imagenN2L1" position="-0.1900 0.1850 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 1"></a-image>
+        <a-image id="visualN2Mano1" src="#imagenN2Mano1" position="-0.1850 0.1300 0.03" width="0.060" height="0.045" material="transparent: true; opacity: 1"></a-image>
+
+        <a-sphere id="puntoN2U1" position="-0.1050 0.1700 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN2U1" src="#imagenN2U1" position="-0.1025 0.1650 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+
+        <a-sphere id="puntoN2N" position="-0.0200 0.2050 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN2N" src="#imagenN2N" position="-0.0175 0.1975 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+
+        <a-sphere id="puntoN2A" position="0.0850 0.1750 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN2A" src="#imagenN2A" position="0.0750 0.1675 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+
+        <a-sphere id="puntoN2Luna" position="0.2000 0.1800 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN2Luna" src="#imagenN2Luna" position="0.2030 0.1750 0.02" width="0.20" height="0.20" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+
+        <a-sphere id="puntoN2L2" position="-0.0300 0.0300 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN2L2" src="#imagenN2L2" position="-0.0300 0.0300 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 1"></a-image>
+        <a-image id="visualN2Mano2" src="#imagenN2Mano2" position="-0.0250 -0.0275 0.03" width="0.060" height="0.045" material="transparent: true; opacity: 1"></a-image>
+
+        <a-sphere id="puntoN2U2" position="0.1150 0.0200 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN2U2" src="#imagenN2U2" position="0.1120 0.0195 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+
+        <a-sphere id="puntoN2Z" position="0.2600 0.0150 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN2Z" src="#imagenN2Z" position="0.2600 0.0150 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+
+        <a-sphere id="puntoN2Luz" position="0.3700 0.0200 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN2Luz" src="#imagenN2Luz" position="0.3670 0.0180 0.02" width="0.15" height="0.15" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+    </a-entity>
+
+    <!-- ========================= N3 / target 2 ========================= -->
+    <a-entity mindar-image-target="targetIndex: 2">
+        <a-sphere id="puntoN3M" position="-0.3950 0.2325 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN3M" src="#imagenN3M" position="-0.3825 0.2300 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 1"></a-image>
+        <a-image id="visualN3Mano" src="#imagenN3Mano" position="-0.3775 0.1700 0.03" width="0.060" height="0.045" material="transparent: true; opacity: 1"></a-image>
+
+        <a-sphere id="puntoN3I" position="-0.2050 0.2725 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN3I" src="#imagenN3I" position="-0.2025 0.2700 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+
+        <a-sphere id="puntoN3E" position="0.0000 0.2325 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN3E" src="#imagenN3E" position="0.0000 0.2225 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+
+        <a-sphere id="puntoN3D" position="0.1875 0.1400 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN3D" src="#imagenN3D" position="0.1875 0.1350 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+
+        <a-sphere id="puntoN3O" position="0.4075 0.2325 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN3O" src="#imagenN3O" position="0.4050 0.2375 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+
+        <a-sphere id="puntoN3Miedo" position="0.4100 0.1175 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN3Miedo" src="#imagenN3Miedo" position="0.4100 0.1175 0.02" width="0.140" height="0.157" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+    </a-entity>
+
+    <!-- ========================= N4 / target 3 ========================= -->
+    <a-entity mindar-image-target="targetIndex: 3">
+        <a-sphere id="puntoN4N" position="-0.4450 0.1150 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN4N" src="#imagenN4N" position="-0.4350 0.12 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 1"></a-image>
+        <a-image id="visualN4Mano" src="#imagenN4Mano" position="-0.43 0.065 0.03" width="0.060" height="0.045" material="transparent: true; opacity: 1"></a-image>
+
+        <a-sphere id="puntoN4O" position="-0.33 0.04 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN4O" src="#imagenN4O" position="-0.32 0.035 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+
+        <a-sphere id="puntoN4C" position="-0.215 0.1 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN4C" src="#imagenN4C" position="-0.2050 0.095 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+
+        <a-sphere id="puntoN4H" position="-0.08 0.025 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN4H" src="#imagenN4H" position="-0.075 0.03 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+
+        <a-sphere id="puntoN4E" position="0.04 -0.03 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN4E" src="#imagenN4E" position="0.045 -0.0300 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+
+        <a-sphere id="puntoN4Noche" position="0.3700 -0.095 -0.04" radius="0.045" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN4Noche" src="#imagenN4Noche" position="0.355 -0.1 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 0"></a-image>
+
+        <a-sphere id="puntoN4Ji1" position="0.0725 0.18 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN4Ji1" src="#imagenN4Ji1" position="0.0750 0.175 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 1"></a-image>
+
+        <a-sphere id="puntoN4Ji2" position="0.1900 0.2100 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN4Ji2" src="#imagenN4Ji2" position="0.1875 0.2050 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 1"></a-image>
+
+        <a-sphere id="puntoN4Ji3" position="0.3000 0.1900 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN4Ji3" src="#imagenN4Ji3" position="0.3000 0.1850 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 1"></a-image>
+    </a-entity>
+
+    <!-- ========================= N5 / target 4 ========================= -->
+    <a-entity mindar-image-target="targetIndex: 4">
+        <a-sphere id="puntoN5S" position="-0.2700 0.2950 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN5S" src="#imagenN5S" position="-0.2600 0.2900 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 1"></a-image>
+        <a-image id="visualN5Mano" src="#imagenN5Mano" position="-0.2550 0.2350 0.03" width="0.060" height="0.045" material="transparent: true; opacity: 1"></a-image>
+
+        <a-sphere id="puntoN5I1" position="-0.1750 0.2150 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN5I1" src="#imagenN5I1" position="-0.1700 0.2100 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+
+        <a-sphere id="puntoN5L" position="-0.0300 0.2350 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN5L" src="#imagenN5L" position="-0.0300 0.2350 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+
+        <a-sphere id="puntoN5E" position="0.0350 0.1400 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN5E" src="#imagenN5E" position="0.0350 0.1400 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+
+        <a-sphere id="puntoN5N" position="0.0950 0.0250 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN5N" src="#imagenN5N" position="0.0950 0.0250 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+
+        <a-sphere id="puntoN5C" position="0.2050 0.1050 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN5C" src="#imagenN5C" position="0.2050 0.1050 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+
+        <a-sphere id="puntoN5I2" position="0.2600 0.1950 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN5I2" src="#imagenN5I2" position="0.2600 0.1950 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+
+        <a-sphere id="puntoN5O" position="0.3750 0.2200 -0.01" radius="0.03" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN5O" src="#imagenN5O" position="0.3750 0.2200 0.02" width="0.14" height="0.14" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+
+        <a-sphere id="puntoN5Silencio" position="0.3550 0.0950 -0.01" radius="0.04" material="opacity: 0; transparent: true"></a-sphere>
+        <a-image id="visualN5Silencio" src="#imagenN5Silencio" position="0.3550 0.0950 0.05" width="0.051" height="0.08" material="transparent: true; opacity: 0" animation__aparecer="property: material.opacity; from: 0; to: 1; dur: 800; easing: easeOutQuad; startEvents: aparecer"></a-image>
+    </a-entity>
+
+</a-scene>
+
+<script>
+const escena = document.querySelector("a-scene");
+let audioDesbloqueado = false;
+
+escena.addEventListener("loaded", function () {
+    const canvas = escena.renderer.domElement;
+    const camera = escena.camera;
+
+    function q(id) { return document.querySelector(id); }
+
+    function reproducirAudio(id) {
+        const audio = q(id);
+        if (!audio) return;
+        audio.pause();
+        audio.currentTime = 0;
+        audio.play().catch(function(error) {
+            console.log("Error reproduciendo " + id, error);
+        });
+    }
+
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+
+    // Puntos de todas las páginas
+    const objetos = [
+        // N1
+        q("#puntoN1C").object3D, q("#puntoN1R").object3D, q("#puntoN1I").object3D,
+        q("#puntoN1Cri1").object3D, q("#puntoN1Cri2").object3D,
+        q("#puntoN1Cri3").object3D, q("#puntoN1Cri4").object3D,
+
+        // N2
+        q("#puntoN2L1").object3D, q("#puntoN2U1").object3D, q("#puntoN2N").object3D,
+        q("#puntoN2A").object3D, q("#puntoN2Luna").object3D,
+        q("#puntoN2L2").object3D, q("#puntoN2U2").object3D,
+        q("#puntoN2Z").object3D, q("#puntoN2Luz").object3D,
+
+        // N3
+        q("#puntoN3M").object3D, q("#puntoN3I").object3D, q("#puntoN3E").object3D,
+        q("#puntoN3D").object3D, q("#puntoN3O").object3D, q("#puntoN3Miedo").object3D,
+
+        // N4
+        q("#puntoN4N").object3D, q("#puntoN4O").object3D, q("#puntoN4C").object3D,
+        q("#puntoN4H").object3D, q("#puntoN4E").object3D, q("#puntoN4Noche").object3D,
+        q("#puntoN4Ji1").object3D, q("#puntoN4Ji2").object3D, q("#puntoN4Ji3").object3D,
+
+        // N5
+        q("#puntoN5S").object3D, q("#puntoN5I1").object3D, q("#puntoN5L").object3D,
+        q("#puntoN5E").object3D, q("#puntoN5N").object3D, q("#puntoN5C").object3D,
+        q("#puntoN5I2").object3D, q("#puntoN5O").object3D, q("#puntoN5Silencio").object3D
+    ];
+
+    let pasoN1 = 0;
+    let pasoN2Luna = 0;
+    let pasoN2Luz = 0;
+    let pasoN3 = 0;
+    let pasoN4 = 0;
+    let pasoN5 = 0;
+
+    canvas.addEventListener("pointerdown", function(evento) {
+        if (!audioDesbloqueado) audioDesbloqueado = true;
+
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = ((evento.clientX - rect.left) / rect.width) * 2 - 1;
+        mouse.y = -((evento.clientY - rect.top) / rect.height) * 2 + 1;
+        raycaster.setFromCamera(mouse, camera);
+
+        const intersecciones = raycaster.intersectObjects(objetos, true);
+        if (intersecciones.length === 0) return;
+
+        const el = intersecciones[0].object.el;
+        if (!el) return;
+        const id = el.id;
+
+        // ========================= N1 =========================
+        if (id === "puntoN1C") {
+            reproducirAudio("#audioN1C");
+            if (pasoN1 === 0) { q("#visualN1R").emit("aparecer"); pasoN1 = 1; }
+        }
+        else if (id === "puntoN1R") {
+            if (pasoN1 >= 1) reproducirAudio("#audioN1R");
+            if (pasoN1 === 1) { q("#visualN1I").emit("aparecer"); pasoN1 = 2; }
+        }
+        else if (id === "puntoN1I") {
+            if (pasoN1 >= 2) reproducirAudio("#audioN1I");
+            if (pasoN1 === 2) { q("#visualN1Cri1").emit("aparecer"); pasoN1 = 3; }
+        }
+        else if (id === "puntoN1Cri1") {
+            if (pasoN1 >= 3) reproducirAudio("#audioN1CriCri");
+            if (pasoN1 === 3) { q("#visualN1Cri2").emit("aparecer"); pasoN1 = 4; }
+        }
+        else if (id === "puntoN1Cri2") {
+            if (pasoN1 >= 4) reproducirAudio("#audioN1CriCri");
+            if (pasoN1 === 4) { q("#visualN1Cri3").emit("aparecer"); pasoN1 = 5; }
+        }
+        else if (id === "puntoN1Cri3") {
+            if (pasoN1 >= 5) reproducirAudio("#audioN1CriCri");
+            if (pasoN1 === 5) { q("#visualN1Cri4").emit("aparecer"); pasoN1 = 6; }
+        }
+        else if (id === "puntoN1Cri4") {
+            if (pasoN1 >= 6) reproducirAudio("#audioN1CriCri");
+        }
+
+        // ========================= N2 =========================
+        else if (id === "puntoN2L1") {
+            reproducirAudio("#audioN2L");
+            if (pasoN2Luna === 0) { q("#visualN2U1").emit("aparecer"); pasoN2Luna = 1; }
+        }
+        else if (id === "puntoN2U1") {
+            if (pasoN2Luna >= 1) reproducirAudio("#audioN2U");
+            if (pasoN2Luna === 1) { q("#visualN2N").emit("aparecer"); pasoN2Luna = 2; }
+        }
+        else if (id === "puntoN2N") {
+            if (pasoN2Luna >= 2) reproducirAudio("#audioN2N");
+            if (pasoN2Luna === 2) { q("#visualN2A").emit("aparecer"); pasoN2Luna = 3; }
+        }
+        else if (id === "puntoN2A") {
+            if (pasoN2Luna >= 3) reproducirAudio("#audioN2A");
+            if (pasoN2Luna === 3) { q("#visualN2Luna").emit("aparecer"); pasoN2Luna = 4; }
+        }
+        else if (id === "puntoN2Luna") {
+            if (pasoN2Luna >= 4) reproducirAudio("#audioN2Luna");
+        }
+        else if (id === "puntoN2L2") {
+            reproducirAudio("#audioN2L");
+            if (pasoN2Luz === 0) { q("#visualN2U2").emit("aparecer"); pasoN2Luz = 1; }
+        }
+        else if (id === "puntoN2U2") {
+            if (pasoN2Luz >= 1) reproducirAudio("#audioN2U");
+            if (pasoN2Luz === 1) { q("#visualN2Z").emit("aparecer"); pasoN2Luz = 2; }
+        }
+        else if (id === "puntoN2Z") {
+            if (pasoN2Luz >= 2) reproducirAudio("#audioN2Z");
+            if (pasoN2Luz === 2) { q("#visualN2Luz").emit("aparecer"); pasoN2Luz = 3; }
+        }
+        else if (id === "puntoN2Luz") {
+            if (pasoN2Luz >= 3) reproducirAudio("#audioN2Luz");
+        }
+
+        // ========================= N3 =========================
+        else if (id === "puntoN3M") {
+            reproducirAudio("#audioN3M");
+            if (pasoN3 === 0) { q("#visualN3I").emit("aparecer"); pasoN3 = 1; }
+        }
+        else if (id === "puntoN3I") {
+            if (pasoN3 >= 1) reproducirAudio("#audioN3I");
+            if (pasoN3 === 1) { q("#visualN3E").emit("aparecer"); pasoN3 = 2; }
+        }
+        else if (id === "puntoN3E") {
+            if (pasoN3 >= 2) reproducirAudio("#audioN3E");
+            if (pasoN3 === 2) { q("#visualN3D").emit("aparecer"); pasoN3 = 3; }
+        }
+        else if (id === "puntoN3D") {
+            if (pasoN3 >= 3) reproducirAudio("#audioN3D");
+            if (pasoN3 === 3) { q("#visualN3O").emit("aparecer"); pasoN3 = 4; }
+        }
+        else if (id === "puntoN3O") {
+            if (pasoN3 >= 4) reproducirAudio("#audioN3O");
+            if (pasoN3 === 4) { q("#visualN3Miedo").emit("aparecer"); pasoN3 = 5; }
+        }
+        else if (id === "puntoN3Miedo") {
+            if (pasoN3 >= 5) reproducirAudio("#audioN3Miedo");
+        }
+
+        // ========================= N4 =========================
+        else if (id === "puntoN4N") {
+            reproducirAudio("#audioN4N");
+            if (pasoN4 === 0) { q("#visualN4O").emit("aparecer"); pasoN4 = 1; }
+        }
+        else if (id === "puntoN4O") {
+            if (pasoN4 >= 1) reproducirAudio("#audioN4O");
+            if (pasoN4 === 1) { q("#visualN4C").emit("aparecer"); pasoN4 = 2; }
+        }
+        else if (id === "puntoN4C") {
+            if (pasoN4 >= 2) reproducirAudio("#audioN4C");
+            if (pasoN4 === 2) { q("#visualN4H").emit("aparecer"); pasoN4 = 3; }
+        }
+        else if (id === "puntoN4H") {
+            if (pasoN4 >= 3) reproducirAudio("#audioN4H");
+            if (pasoN4 === 3) { q("#visualN4E").emit("aparecer"); pasoN4 = 4; }
+        }
+        else if (id === "puntoN4E") {
+            if (pasoN4 >= 4) reproducirAudio("#audioN4E");
+            if (pasoN4 === 4) {
+                // Se conserva el método especial del N4 original.
+                q("#visualN4Noche").setAttribute("material", "transparent: true; opacity: 1");
+                pasoN4 = 5;
+            }
+        }
+        else if (id === "puntoN4Noche") {
+            if (pasoN4 >= 5) reproducirAudio("#audioN4Noche");
+        }
+        else if (id === "puntoN4Ji1" || id === "puntoN4Ji2" || id === "puntoN4Ji3") {
+            reproducirAudio("#audioN4Ji");
+        }
+
+        // ========================= N5 =========================
+        else if (id === "puntoN5S") {
+            reproducirAudio("#audioN5S");
+            if (pasoN5 === 0) { q("#visualN5I1").emit("aparecer"); pasoN5 = 1; }
+        }
+        else if (id === "puntoN5I1") {
+            if (pasoN5 >= 1) reproducirAudio("#audioN5I");
+            if (pasoN5 === 1) { q("#visualN5L").emit("aparecer"); pasoN5 = 2; }
+        }
+        else if (id === "puntoN5L") {
+            if (pasoN5 >= 2) reproducirAudio("#audioN5L");
+            if (pasoN5 === 2) { q("#visualN5E").emit("aparecer"); pasoN5 = 3; }
+        }
+        else if (id === "puntoN5E") {
+            if (pasoN5 >= 3) reproducirAudio("#audioN5E");
+            if (pasoN5 === 3) { q("#visualN5N").emit("aparecer"); pasoN5 = 4; }
+        }
+        else if (id === "puntoN5N") {
+            if (pasoN5 >= 4) reproducirAudio("#audioN5N");
+            if (pasoN5 === 4) { q("#visualN5C").emit("aparecer"); pasoN5 = 5; }
+        }
+        else if (id === "puntoN5C") {
+            if (pasoN5 >= 5) reproducirAudio("#audioN5C");
+            if (pasoN5 === 5) { q("#visualN5I2").emit("aparecer"); pasoN5 = 6; }
+        }
+        else if (id === "puntoN5I2") {
+            if (pasoN5 >= 6) reproducirAudio("#audioN5I");
+            if (pasoN5 === 6) { q("#visualN5O").emit("aparecer"); pasoN5 = 7; }
+        }
+        else if (id === "puntoN5O") {
+            if (pasoN5 >= 7) reproducirAudio("#audioN5O");
+            if (pasoN5 === 7) { q("#visualN5Silencio").emit("aparecer"); pasoN5 = 8; }
+        }
+        else if (id === "puntoN5Silencio") {
+            if (pasoN5 >= 8) reproducirAudio("#audioN5Silencio");
+        }
+    });
+});
+</script>
+
+</body>
+</html>

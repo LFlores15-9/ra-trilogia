@@ -1,0 +1,1795 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hora Azul — Realidad Aumentada</title>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+</head>
+<body>
+  <!-- Audios de H1 -->
+  <audio id="h1_audioHIS" preload="auto" src="./HA1/HIS.mp3"></audio>
+  <audio id="h1_audioTO" preload="auto" src="./HA1/TO.mp3"></audio>
+  <audio id="h1_audioRIAS" preload="auto" src="./HA1/RIAS.mp3"></audio>
+  <audio id="h1_audioOVNI" preload="auto" src="./HA1/OVNI.mp3"></audio>
+  <!-- Audios de H2 -->
+  <audio id="h2_audioMI" preload="auto" src="./HA2/MI.mp3"></audio>
+  <audio id="h2_audioREN" preload="auto" src="./HA2/REN.mp3"></audio>
+  <audio id="h2_audioBRI" preload="auto" src="./HA2/BRI.mp3"></audio>
+  <audio id="h2_audioLLA" preload="auto" src="./HA2/LLA.mp3"></audio>
+  <audio id="h2_audioVIE" preload="auto" src="./HA2/VIE.mp3"></audio>
+  <audio id="h2_audioNE" preload="auto" src="./HA2/NE.mp3"></audio>
+  <audio id="h2_audioOVNI" preload="auto" src="./HA2/OVNI.mp3"></audio>
+  <!-- Audios de H3 -->
+  <audio id="h3_audioCO" preload="auto" src="./HA3/CO.mp3"></audio>
+  <audio id="h3_audioRRE" preload="auto" src="./HA3/RRE.mp3"></audio>
+  <audio id="h3_audioA" preload="auto" src="./HA3/A.mp3"></audio>
+  <audio id="h3_audioSUS" preload="auto" src="./HA3/SUS.mp3"></audio>
+  <audio id="h3_audioTA" preload="auto" src="./HA3/TA.mp3"></audio>
+  <audio id="h3_audioDO" preload="auto" src="./HA3/DO.mp3"></audio>
+  <audio id="h3_audioOVNI" preload="auto" src="./HA3/OVNI.mp3"></audio>
+  <audio id="h3_audioSUSTO" preload="auto" src="./HA3/SUSTO.mp3"></audio>
+  <!-- Audios de H4 -->
+  <audio id="h4_audioCA" preload="auto" src="./HA4/CA.mp3"></audio>
+  <audio id="h4_audioMI" preload="auto" src="./HA4/MI.mp3"></audio>
+  <audio id="h4_audioNO" preload="auto" src="./HA4/NO.mp3"></audio>
+  <audio id="h4_audioA" preload="auto" src="./HA4/A.mp3"></audio>
+  <audio id="h4_audioBUE" preload="auto" src="./HA4/BUE.mp3"></audio>
+  <audio id="h4_audioLA" preload="auto" src="./HA4/LA.mp3"></audio>
+  <audio id="h4_audioVA" preload="auto" src="./HA4/VA.mp3"></audio>
+  <audio id="h4_audioLIEN" preload="auto" src="./HA4/LIEN.mp3"></audio>
+  <audio id="h4_audioTE" preload="auto" src="./HA4/TE.mp3"></audio>
+  <audio id="h4_audioOVNI" preload="auto" src="./HA4/OVNI.mp3"></audio>
+  <!-- Audios de H5 -->
+  <audio id="h5_audioAbuela" preload="auto" src="./HA5/ABUELA.mp3">
+</audio>
+  <audio id="h5_audioNina" preload="auto" src="./HA5/NIÑA.mp3">
+</audio>
+  <a-scene mindar-image="imageTargetSrc: ./targets.mind;" color-space="sRGB" renderer="colorManagement: true; physicallyCorrectLights: true" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <a-assets>
+      <!-- Imágenes de H1 -->
+      <img id="h1_imagenHIS" src="./HA1/HIS.png"/>
+      <img id="h1_imagenTO" src="./HA1/TO.png"/>
+      <img id="h1_imagenRIAS" src="./HA1/RIAS.png"/>
+      <img id="h1_imagenOVNI" src="./HA1/OVNI.png"/>
+      <img id="h1_imagenMano" src="./HA1/mano.png"/>
+      <!-- Imágenes de H2 -->
+      <img id="h2_imagenMI" src="./HA2/MI.png"/>
+      <img id="h2_imagenREN" src="./HA2/REN.png"/>
+      <img id="h2_imagenBRI" src="./HA2/BRI.png"/>
+      <img id="h2_imagenLLA" src="./HA2/LLA.png"/>
+      <img id="h2_imagenVIE" src="./HA2/VIE.png"/>
+      <img id="h2_imagenNE" src="./HA2/NE.png"/>
+      <img id="h2_imagenOVNI" src="./HA2/OVNI.png"/>
+      <img id="h2_imagenMano" src="./HA2/mano.png"/>
+      <!-- Imágenes de H3 -->
+      <img id="h3_imagenCO" src="./HA3/CO.png"/>
+      <img id="h3_imagenRRE" src="./HA3/RRE.png"/>
+      <img id="h3_imagenA" src="./HA3/A.png"/>
+      <img id="h3_imagenSUS" src="./HA3/SUS.png"/>
+      <img id="h3_imagenTA" src="./HA3/TA.png"/>
+      <img id="h3_imagenDO" src="./HA3/DO.png"/>
+      <img id="h3_imagenOVNI" src="./HA3/OVNI.png"/>
+      <img id="h3_imagenMano" src="./HA3/mano.png"/>
+      <img id="h3_imagenSUSTO" src="./HA3/SUSTO.png"/>
+      <!-- Imágenes de H4 -->
+      <img id="h4_imagenCA" src="./HA4/CA.png"/>
+      <img id="h4_imagenMI" src="./HA4/MI.png"/>
+      <img id="h4_imagenNO" src="./HA4/NO.png"/>
+      <img id="h4_imagenA" src="./HA4/A.png"/>
+      <img id="h4_imagenBUE" src="./HA4/BUE.png"/>
+      <img id="h4_imagenLA" src="./HA4/LA.png"/>
+      <img id="h4_imagenVA" src="./HA4/VA.png"/>
+      <img id="h4_imagenLIEN" src="./HA4/LIEN.png"/>
+      <img id="h4_imagenTE" src="./HA4/TE.png"/>
+      <img id="h4_imagenOVNI" src="./HA4/OVNI.png"/>
+      <img id="h4_imagenMano" src="./HA4/mano.png"/>
+      <!-- Imágenes de H5 -->
+      <img id="h5_imagenAbuela" src="./HA5/ABUELA.png"/>
+      <img id="h5_imagenNina" src="./HA5/NIÑA.png"/>
+      <img id="h5_imagenNinaParpadeo" src="./HA5/NIÑA PARPADEO.png"/>
+      <img id="h5_destello1" src="./HA5/1.png"/>
+      <img id="h5_destello2" src="./HA5/2.png"/>
+      <img id="h5_destello3" src="./HA5/3.png"/>
+      <img id="h5_destello4" src="./HA5/4.png"/>
+    </a-assets>
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+    <!-- Página H1: marcador 0 -->
+<a-entity id="h1_marcador" mindar-image-target="targetIndex: 0">
+<a-sphere id="h1_puntoHIS" material="color: #FFFF66; opacity: 0; transparent: true" position="-0.4350 0.1050 -0.01" radius="0.03">
+</a-sphere>
+<a-image height="0.15" id="h1_visualHIS" material="transparent: true; opacity: 1" position="-0.4350 0.1050 0.02" src="#h1_imagenHIS" width="0.15">
+</a-image>
+<a-image height="0.045" id="h1_visualMano" material="transparent: true; opacity: 1" position="-0.4300 0.0450 0.03" src="#h1_imagenMano" width="0.060">
+</a-image>
+<a-sphere id="h1_puntoTO" material="color: #FFFF66; opacity: 0; transparent: true" position="-0.2600 0.0250 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="property: material.opacity;
+                             from: 0;
+                             to: 1;
+                             dur: 800;
+                             easing: easeOutQuad;
+                             startEvents: aparecer" height="0.15" id="h1_visualTO" material="transparent: true; opacity: 0" position="-0.2600 0.0250 0.02" src="#h1_imagenTO" width="0.15">
+</a-image>
+<a-sphere id="h1_puntoRIAS" material="color: #FFFF66; opacity: 0; transparent: true" position="-0.0750 0.1100 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="property: material.opacity;
+                             from: 0;
+                             to: 1;
+                             dur: 800;
+                             easing: easeOutQuad;
+                             startEvents: aparecer" height="0.15" id="h1_visualRIAS" material="transparent: true; opacity: 0" position="-0.0750 0.1100 0.02" src="#h1_imagenRIAS" width="0.15">
+</a-image>
+<a-sphere id="h1_puntoOVNI" material="color: #FFFF66; opacity: 0; transparent: true" position="0.4100 0.2750 -0.01" radius="0.04">
+</a-sphere>
+<a-image animation__brillo="property: material.color;
+                           from: #999999;
+                           to: #FFFFFF;
+                           dur: 350;
+                           dir: alternate;
+                          loop: true;
+                          easing: easeInOutSine" height="0.0433" id="h1_visualOVNI" material="shader: flat; transparent: true; opacity: 1" position="0.4100 0.2750 0.05" src="#h1_imagenOVNI" width="0.10">
+</a-image>
+</a-entity>
+    <!-- Página H2: marcador 1 -->
+<a-entity id="h2_marcador" mindar-image-target="targetIndex: 1">
+<!-- ========================= -->
+<!-- CONSTELACIÓN MIREN -->
+<!-- ========================= -->
+<!-- MI -->
+<a-sphere id="h2_puntoMI" material="color: #FFFF66; opacity: 0; transparent: true" position="-0.4500 0.0350 -0.01" radius="0.03">
+</a-sphere>
+<a-image height="0.15" id="h2_visualMI" material="transparent: true; opacity: 1" position="-0.4500 0.0350 0.02" src="#h2_imagenMI" width="0.15">
+</a-image>
+<!-- MANO -->
+<a-image height="0.045" id="h2_visualMano" material="transparent: true; opacity: 1" position="-0.4450 -0.0200 0.03" src="#h2_imagenMano" width="0.060">
+</a-image>
+<!-- REN -->
+<a-sphere id="h2_puntoREN" material="color: #FFFF66; opacity: 0; transparent: true" position="-0.3100 0.0700 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="property: material.opacity;
+                             from: 0;
+                             to: 1;
+                             dur: 800;
+                             easing: easeOutQuad;
+                             startEvents: aparecer" height="0.15" id="h2_visualREN" material="transparent: true; opacity: 0" position="-0.3100 0.0700 0.02" src="#h2_imagenREN" width="0.15">
+</a-image>
+<!-- ========================= -->
+<!-- CONSTELACIÓN BRILLA -->
+<!-- ========================= -->
+<!-- BRI -->
+<a-sphere id="h2_puntoBRI" material="color: #FFFF66; opacity: 0; transparent: true" position="-0.1100 0.0750 -0.01" radius="0.03">
+</a-sphere>
+<a-image height="0.15" id="h2_visualBRI" material="transparent: true; opacity: 1" position="-0.1100 0.0750 0.02" src="#h2_imagenBRI" width="0.15">
+</a-image>
+<!-- LLA -->
+<a-sphere id="h2_puntoLLA" material="color: #FFFF66; opacity: 0; transparent: true" position="0.0900 0.0500 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="property: material.opacity;
+                             from: 0;
+                             to: 1;
+                             dur: 800;
+                             easing: easeOutQuad;
+                             startEvents: aparecer" height="0.15" id="h2_visualLLA" material="transparent: true; opacity: 0" position="0.0900 0.0500 0.02" src="#h2_imagenLLA" width="0.15">
+</a-image>
+<!-- ========================= -->
+<!-- CONSTELACIÓN VIENE -->
+<!-- ========================= -->
+<!-- VIE -->
+<a-sphere id="h2_puntoVIE" material="color: #FFFF66; opacity: 0; transparent: true" position="0.2100 0.1250 -0.01" radius="0.03">
+</a-sphere>
+<a-image height="0.15" id="h2_visualVIE" material="transparent: true; opacity: 1" position="0.2100 0.1250 0.02" src="#h2_imagenVIE" width="0.15">
+</a-image>
+<!-- NE -->
+<a-sphere id="h2_puntoNE" material="color: #FFFF66; opacity: 0; transparent: true" position="0.3500 0.2100 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="property: material.opacity;
+                             from: 0;
+                             to: 1;
+                             dur: 800;
+                             easing: easeOutQuad;
+                             startEvents: aparecer" height="0.15" id="h2_visualNE" material="transparent: true; opacity: 0" position="0.3500 0.2100 0.02" src="#h2_imagenNE" width="0.15">
+</a-image>
+<!-- ========================= -->
+<!-- OVNI -->
+<!-- ========================= -->
+<a-sphere id="h2_puntoOVNI" material="color: #FFFF66; opacity: 0; transparent: true" position="0.1250 0.2250 -0.01" radius="0.05">
+</a-sphere>
+<a-image animation__brillo="property: material.color;
+                           from: #999999;
+                           to: #FFFFFF;
+                           dur: 350;
+                           dir: alternate;
+                           loop: true;
+                           easing: easeInOutSine" height="0.0520" id="h2_visualOVNI" material="shader: flat; transparent: true; opacity: 1" position="0.1250 0.2250 0.05" src="#h2_imagenOVNI" width="0.12">
+</a-image>
+</a-entity>
+    <!-- Página H3: marcador 2 -->
+<a-entity id="h3_marcadorHA3" mindar-image-target="targetIndex: 2">
+<a-sphere id="h3_puntoCO" material="color: #FFFF66; opacity: 0; transparent: true" position="-0.4400 0.0500 -0.01" radius="0.03">
+</a-sphere>
+<a-image height="0.15" id="h3_visualCO" material="transparent: true; opacity: 1" position="-0.4400 0.0500 0.02" src="#h3_imagenCO" width="0.15">
+</a-image>
+<a-image height="0.045" id="h3_visualMano" material="transparent: true; opacity: 1" position="-0.4400 -0.0100 0.03" src="#h3_imagenMano" width="0.060">
+</a-image>
+<a-sphere id="h3_puntoRRE" material="color: #FFFF66; opacity: 0; transparent: true" position="-0.3300 0.0800 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="property: material.opacity;
+                             from: 0;
+                             to: 1;
+                             dur: 800;
+                             easing: easeOutQuad;
+                             startEvents: aparecer" height="0.15" id="h3_visualRRE" material="transparent: true; opacity: 0" position="-0.3300 0.0800 0.02" src="#h3_imagenRRE" width="0.15">
+</a-image>
+<a-sphere id="h3_puntoA" material="color: #FFFF66; opacity: 0; transparent: true" position="-0.1900 0.0050 -0.01" radius="0.03">
+</a-sphere>
+<a-image height="0.15" id="h3_visualA" material="transparent: true; opacity: 1" position="-0.1900 0.0050 0.02" src="#h3_imagenA" width="0.15">
+</a-image>
+<a-sphere id="h3_puntoSUS" material="color: #FFFF66; opacity: 0; transparent: true" position="-0.0300 0.0250 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="property: material.opacity;
+                             from: 0;
+                             to: 1;
+                             dur: 800;
+                             easing: easeOutQuad;
+                             startEvents: aparecer" height="0.15" id="h3_visualSUS" material="transparent: true; opacity: 0" position="-0.0300 0.0250 0.02" src="#h3_imagenSUS" width="0.15">
+</a-image>
+<a-sphere id="h3_puntoTA" material="color: #FFFF66; opacity: 0; transparent: true" position="0.0800 0.1050 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="property: material.opacity;
+                             from: 0;
+                             to: 1;
+                             dur: 800;
+                             easing: easeOutQuad;
+                             startEvents: aparecer" height="0.15" id="h3_visualTA" material="transparent: true; opacity: 0" position="0.0800 0.1050 0.02" src="#h3_imagenTA" width="0.15">
+</a-image>
+<a-sphere id="h3_puntoDO" material="color: #FFFF66; opacity: 0; transparent: true" position="0.1950 0.0650 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="property: material.opacity;
+                             from: 0;
+                             to: 1;
+                             dur: 800;
+                             easing: easeOutQuad;
+                             startEvents: aparecer" height="0.15" id="h3_visualDO" material="transparent: true; opacity: 0" position="0.1950 0.0650 0.02" src="#h3_imagenDO" width="0.15">
+</a-image>
+<a-sphere id="h3_puntoOVNI" material="color: #FFFF66; opacity: 0; transparent: true" position="0.1800 0.1650 -0.01" radius="0.05">
+</a-sphere>
+<a-image animation__brillo="property: material.color;
+                           from: #999999;
+                           to: #FFFFFF;
+                           dur: 350;
+                           dir: alternate;
+                           loop: true;
+                           easing: easeInOutSine" height="0.0780" id="h3_visualOVNI" material="shader: flat; transparent: true; opacity: 1" position="0.1800 0.1650 0.05" src="#h3_imagenOVNI" width="0.18">
+</a-image>
+<a-plane height="0.1207" id="h3_puntoSUSTO" material="color: #FFFF66;
+                  opacity: 0;
+                  transparent: true;
+                  side: double" position="-0.1200 -0.1600 0.06" width="0.24">
+</a-plane>
+<a-image height="0.1207" id="h3_visualSUSTO" material="shader: flat; transparent: true; opacity: 1; side: double" position="-0.1050 -0.1450 0.08" src="#h3_imagenSUSTO" width="0.24">
+</a-image>
+</a-entity>
+    <!-- Página H4: marcador 3 -->
+<a-entity id="h4_marcadorHA4" mindar-image-target="targetIndex: 3">
+<a-sphere id="h4_puntoCA" material="color: #FFFF66; opacity: 0; transparent: true" position="-0.4400 0.1150 -0.01" radius="0.03">
+</a-sphere>
+<a-image height="0.15" id="h4_visualCA" material="transparent: true; opacity: 1" position="-0.4400 0.1150 0.02" src="#h4_imagenCA" width="0.15">
+</a-image>
+<a-image height="0.045" id="h4_visualMano" material="transparent: true; opacity: 1" position="-0.4350 0.0550 0.03" src="#h4_imagenMano" width="0.060">
+</a-image>
+<a-sphere id="h4_puntoMI" material="color: #FFFF66; opacity: 0; transparent: true" position="-0.3100 0.0000 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="property: material.opacity;
+                                 from: 0;
+                                 to: 1;
+                                 dur: 800;
+                                 easing: easeOutQuad;
+                                 startEvents: aparecer" height="0.15" id="h4_visualMI" material="transparent: true; opacity: 0" position="-0.3100 0.0000 0.02" src="#h4_imagenMI" width="0.15">
+</a-image>
+<a-sphere id="h4_puntoNO" material="color: #FFFF66; opacity: 0; transparent: true" position="-0.1950 0.0500 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="property: material.opacity;
+                                 from: 0;
+                                 to: 1;
+                                 dur: 800;
+                                 easing: easeOutQuad;
+                                 startEvents: aparecer" height="0.15" id="h4_visualNO" material="transparent: true; opacity: 0" position="-0.1950 0.0500 0.02" src="#h4_imagenNO" width="0.15">
+</a-image>
+<a-sphere id="h4_puntoA" material="color: #FFFF66; opacity: 0; transparent: true" position="-0.0600 0.0300 -0.01" radius="0.03">
+</a-sphere>
+<a-image height="0.15" id="h4_visualA" material="transparent: true; opacity: 1" position="-0.0600 0.0300 0.02" src="#h4_imagenA" width="0.15">
+</a-image>
+<a-sphere id="h4_puntoBUE" material="color: #FFFF66; opacity: 0; transparent: true" position="0.0700 0.0750 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="property: material.opacity;
+                                 from: 0;
+                                 to: 1;
+                                 dur: 800;
+                                 easing: easeOutQuad;
+                                 startEvents: aparecer" height="0.15" id="h4_visualBUE" material="transparent: true; opacity: 0" position="0.0700 0.0750 0.02" src="#h4_imagenBUE" width="0.15">
+</a-image>
+<a-sphere id="h4_puntoLA" material="color: #FFFF66; opacity: 0; transparent: true" position="0.1900 0.0100 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="property: material.opacity;
+                                 from: 0;
+                                 to: 1;
+                                 dur: 800;
+                                 easing: easeOutQuad;
+                                 startEvents: aparecer" height="0.15" id="h4_visualLA" material="transparent: true; opacity: 0" position="0.1900 0.0100 0.02" src="#h4_imagenLA" width="0.15">
+</a-image>
+<a-sphere id="h4_puntoVA" material="color: #FFFF66; opacity: 0; transparent: true" position="0.2550 0.0400 -0.01" radius="0.03">
+</a-sphere>
+<a-image height="0.15" id="h4_visualVA" material="transparent: true; opacity: 1" position="0.2550 0.0400 0.025" src="#h4_imagenVA" width="0.15">
+</a-image>
+<a-sphere id="h4_puntoLIEN" material="color: #FFFF66; opacity: 0; transparent: true" position="0.3550 -0.0600 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="property: material.opacity;
+                                 from: 0;
+                                 to: 1;
+                                 dur: 800;
+                                 easing: easeOutQuad;
+                                 startEvents: aparecer" height="0.15" id="h4_visualLIEN" material="transparent: true; opacity: 0" position="0.3550 -0.0600 0.02" src="#h4_imagenLIEN" width="0.15">
+</a-image>
+<a-sphere id="h4_puntoTE" material="color: #FFFF66; opacity: 0; transparent: true" position="0.4500 0.0800 -0.01" radius="0.03">
+</a-sphere>
+<a-image animation__aparecer="property: material.opacity;
+                                 from: 0;
+                                 to: 1;
+                                 dur: 800;
+                                 easing: easeOutQuad;
+                                 startEvents: aparecer" height="0.15" id="h4_visualTE" material="transparent: true; opacity: 0" position="0.4500 0.0800 0.02" src="#h4_imagenTE" width="0.15">
+</a-image>
+<a-sphere id="h4_puntoOVNI" material="color: #FFFF66; opacity: 0; transparent: true" position="0.2350 0.1950 -0.01" radius="0.05">
+</a-sphere>
+<a-image animation__brillo="property: material.color;
+                               from: #999999;
+                               to: #FFFFFF;
+                               dur: 350;
+                               dir: alternate;
+                               loop: true;
+                               easing: easeInOutSine" height="0.0780" id="h4_visualOVNI" material="shader: flat; transparent: true; opacity: 1" position="0.2350 0.1950 0.05" src="#h4_imagenOVNI" width="0.18">
+</a-image>
+</a-entity>
+    <!-- Página H5: marcador 4 -->
+<a-entity id="h5_marcadorHA5" mindar-image-target="targetIndex: 4">
+<a-plane height="0.69075" id="h5_puntoAbuela" material="
+                    shader: flat;
+                    color: #FFFFFF;
+                    transparent: true;
+                    opacity: 0;
+                    side: double;
+                    depthWrite: false" position="0.2700 -0.0150 0.04" width="0.3225">
+</a-plane>
+<a-image height="0.69075" id="h5_visualAbuela" material="
+                    shader: flat;
+                    transparent: true;
+                    opacity: 1" position="0.2700 -0.0150 0.02" src="#h5_imagenAbuela" width="0.3225">
+</a-image>
+<a-entity id="h5_contenedorDestellos" position="0.2700 0.1350 0.07">
+<a-image height="0.26" id="h5_visualDestellos" material="
+                        shader: flat;
+                        transparent: true;
+                        opacity: 0;
+                        depthWrite: false" position="0 0 0" src="#h5_destello4" visible="false" width="0.26">
+</a-image>
+</a-entity>
+<a-plane height="0.297" id="h5_puntoNina" material="
+                    shader: flat;
+                    color: #FFFFFF;
+                    transparent: true;
+                    opacity: 0;
+                    side: double;
+                    depthWrite: false" position="-0.2750 -0.2150 0.04" width="0.225">
+</a-plane>
+<a-image height="0.297" id="h5_visualNina" material="
+                    shader: flat;
+                    transparent: true;
+                    opacity: 1" position="-0.2750 -0.2150 0.03" src="#h5_imagenNina" width="0.225">
+</a-image>
+<a-image height="0.297" id="h5_visualNinaParpadeo" material="
+                    shader: flat;
+                    transparent: true;
+                    alphaTest: 0.01;
+                    depthWrite: false;
+                    side: double;
+                    opacity: 1" position="-0.2750 -0.2150 0.031" src="#h5_imagenNinaParpadeo" visible="false" width="0.225">
+</a-image>
+<a-entity id="h5_contenedorDestellosNina" position="-0.2750 -0.1150 0.07">
+<a-image height="0.20" id="h5_visualDestellosNina" material="
+                        shader: flat;
+                        transparent: true;
+                        opacity: 0.85;
+                        depthWrite: false" position="0 0 0" src="#h5_destello4" visible="false" width="0.20">
+</a-image>
+</a-entity>
+<a-plane animation__luz="
+                    property: material.opacity;
+                    from: 0.08;
+                    to: 0.22;
+                    dur: 900;
+                    dir: alternate;
+                    loop: true;
+                    easing: easeInOutSine" height="0.72" id="h5_luzOVNI" material="
+                    shader: flat;
+                    color: #FFD34D;
+                    transparent: true;
+                    opacity: 0.08;
+                    depthWrite: false;
+                    side: double" position="0 0 0.05" width="1">
+</a-plane>
+</a-entity>
+  </a-scene>
+  <!-- Interacciones H1 -->
+  <script>
+  (function () {
+
+
+const escena = document.querySelector("a-scene");
+let audioDesbloqueado = false;
+
+escena.addEventListener("loaded", function () {
+
+    const canvas = escena.renderer.domElement;
+    const camera = escena.camera;
+
+
+    const puntoHIS = document.querySelector("#h1_puntoHIS");
+    const puntoTO = document.querySelector("#h1_puntoTO");
+    const puntoRIAS = document.querySelector("#h1_puntoRIAS");
+
+    const puntoOVNI = document.querySelector("#h1_puntoOVNI");
+
+
+    function reproducirAudio(id) {
+
+        const audio = document.querySelector(id);
+
+        audio.pause();
+        audio.currentTime = 0;
+
+        audio.play().catch(function(error) {
+
+            console.log(
+                "Error reproduciendo " + id,
+                error
+            );
+
+        });
+
+    }
+
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+
+    let pasoHistorias = 0;
+
+
+    canvas.addEventListener("pointerdown", function (evento) {
+        if (!document.querySelector("#h1_marcador").object3D.visible) return;
+
+
+        if (!audioDesbloqueado) {
+
+            audioDesbloqueado = true;
+
+        }
+
+
+        const rect = canvas.getBoundingClientRect();
+
+        mouse.x =
+            ((evento.clientX - rect.left) / rect.width) * 2 - 1;
+
+        mouse.y =
+            -((evento.clientY - rect.top) / rect.height) * 2 + 1;
+
+
+        raycaster.setFromCamera(
+            mouse,
+            camera
+        );
+
+
+        const objetos = [
+
+            puntoHIS.object3D,
+            puntoTO.object3D,
+            puntoRIAS.object3D,
+            puntoOVNI.object3D
+
+        ];
+
+
+
+        const intersecciones =
+            raycaster.intersectObjects(
+                objetos,
+                true
+            );
+
+
+
+        if (intersecciones.length > 0) {
+
+            const objetoTocado =
+                intersecciones[0].object.el;
+
+            if (objetoTocado.id === "h1_puntoHIS") {
+
+                reproducirAudio("#h1_audioHIS");
+
+                if (pasoHistorias === 0) {
+
+                    document
+                        .querySelector("#h1_visualTO")
+                        .emit("aparecer");
+
+                    pasoHistorias = 1;
+
+                }
+
+            }
+
+
+
+            else if (objetoTocado.id === "h1_puntoTO") {
+
+                if (pasoHistorias >= 1) {
+
+                    reproducirAudio("#h1_audioTO");
+
+                }
+
+
+                if (pasoHistorias === 1) {
+
+                    document
+                        .querySelector("#h1_visualRIAS")
+                        .emit("aparecer");
+
+                    pasoHistorias = 2;
+
+                }
+
+            }
+
+            else if (objetoTocado.id === "h1_puntoRIAS") {
+
+                if (pasoHistorias >= 2) {
+
+                    reproducirAudio("#h1_audioRIAS");
+
+                }
+
+            }
+
+
+            else if (objetoTocado.id === "h1_puntoOVNI") {
+
+                reproducirAudio("#h1_audioOVNI");
+
+            }
+
+        }
+
+    });
+
+});
+
+
+  })();
+  </script>
+  <!-- Interacciones H2 -->
+  <script>
+  (function () {
+
+
+const escena = document.querySelector("a-scene");
+let audioDesbloqueado = false;
+
+escena.addEventListener("loaded", function () {
+
+    const canvas = escena.renderer.domElement;
+    const camera = escena.camera;
+
+
+    // =========================
+    // PUNTOS INTERACTIVOS
+    // =========================
+
+    const puntoMI = document.querySelector("#h2_puntoMI");
+    const puntoREN = document.querySelector("#h2_puntoREN");
+
+    const puntoBRI = document.querySelector("#h2_puntoBRI");
+    const puntoLLA = document.querySelector("#h2_puntoLLA");
+
+    const puntoVIE = document.querySelector("#h2_puntoVIE");
+    const puntoNE = document.querySelector("#h2_puntoNE");
+
+    const puntoOVNI = document.querySelector("#h2_puntoOVNI");
+
+
+   
+    // =========================
+    // FUNCIÓN AUDIO
+    // =========================
+
+    function reproducirAudio(id) {
+
+        const audio = document.querySelector(id);
+
+        audio.pause();
+        audio.currentTime = 0;
+
+        audio.play().catch(function(error) {
+
+            console.log(
+                "Error reproduciendo " + id,
+                error
+            );
+
+        });
+
+    }
+
+
+    // =========================
+    // RAYCASTER
+    // =========================
+
+    // IMPORTANTE:
+    // ESTAS DOS LÍNEAS NO SE BORRAN.
+    // Son las que permiten detectar los toques.
+
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+
+
+    // =========================
+    // PROGRESIÓN DE PALABRAS
+    // =========================
+
+    let pasoMiren = 0;
+    let pasoBrilla = 0;
+    let pasoViene = 0;
+
+
+    // =========================
+    // DETECCIÓN DE TOQUES
+    // =========================
+
+    canvas.addEventListener("pointerdown", function (evento) {
+        if (!document.querySelector("#h2_marcador").object3D.visible) return;
+
+
+
+        // =========================
+        // DESBLOQUEO DE AUDIO
+        // =========================
+
+        if (!audioDesbloqueado) {
+
+            audioDesbloqueado = true;
+
+        }
+
+
+        // =========================
+        // POSICIÓN DEL TOQUE
+        // =========================
+
+        const rect = canvas.getBoundingClientRect();
+
+        mouse.x =
+            ((evento.clientX - rect.left) / rect.width) * 2 - 1;
+
+        mouse.y =
+            -((evento.clientY - rect.top) / rect.height) * 2 + 1;
+
+        raycaster.setFromCamera(
+            mouse,
+            camera
+        );
+
+
+        // =========================
+        // OBJETOS INTERACTIVOS
+        // =========================
+
+        const objetos = [
+
+            puntoMI.object3D,
+            puntoREN.object3D,
+
+            puntoBRI.object3D,
+            puntoLLA.object3D,
+
+            puntoVIE.object3D,
+            puntoNE.object3D,
+
+            puntoOVNI.object3D
+
+        ];
+
+        const intersecciones =
+            raycaster.intersectObjects(
+                objetos,
+                true
+            );
+
+        if (intersecciones.length > 0) {
+
+            const objetoTocado =
+                intersecciones[0].object.el;
+
+
+            // =========================
+            // MI
+            // =========================
+
+            if (objetoTocado.id === "h2_puntoMI") {
+
+                reproducirAudio("#h2_audioMI");
+
+                if (pasoMiren === 0) {
+
+                    document
+                        .querySelector("#h2_visualREN")
+                        .emit("aparecer");
+
+                    pasoMiren = 1;
+
+                }
+
+            }
+
+
+            // =========================
+            // REN
+            // =========================
+
+            else if (objetoTocado.id === "h2_puntoREN") {
+
+                if (pasoMiren >= 1) {
+
+                    reproducirAudio("#h2_audioREN");
+
+                }
+
+            }
+
+
+            // =========================
+            // BRI
+            // =========================
+
+            else if (objetoTocado.id === "h2_puntoBRI") {
+
+                reproducirAudio("#h2_audioBRI");
+
+                if (pasoBrilla === 0) {
+
+                    document
+                        .querySelector("#h2_visualLLA")
+                        .emit("aparecer");
+
+                    pasoBrilla = 1;
+
+                }
+
+            }
+
+
+            // =========================
+            // LLA
+            // =========================
+
+            else if (objetoTocado.id === "h2_puntoLLA") {
+
+                if (pasoBrilla >= 1) {
+
+                    reproducirAudio("#h2_audioLLA");
+
+                }
+
+            }
+
+
+            // =========================
+            // VIE
+            // =========================
+
+            else if (objetoTocado.id === "h2_puntoVIE") {
+
+                reproducirAudio("#h2_audioVIE");
+
+                if (pasoViene === 0) {
+
+                    document
+                        .querySelector("#h2_visualNE")
+                        .emit("aparecer");
+
+                    pasoViene = 1;
+
+                }
+
+            }
+
+
+            // =========================
+            // NE
+            // =========================
+
+            else if (objetoTocado.id === "h2_puntoNE") {
+
+                if (pasoViene >= 1) {
+
+                    reproducirAudio("#h2_audioNE");
+
+                }
+
+            }
+
+
+            // =========================
+            // OVNI
+            // =========================
+
+            else if (objetoTocado.id === "h2_puntoOVNI") {
+
+                reproducirAudio("#h2_audioOVNI");
+
+            }
+
+        }
+
+    });
+
+});
+
+
+  })();
+  </script>
+  <!-- Interacciones H3 -->
+  <script>
+  (function () {
+
+
+const escena = document.querySelector("a-scene");
+let audioDesbloqueado = false;
+
+escena.addEventListener("loaded", function () {
+
+    const canvas = escena.renderer.domElement;
+    const camera = escena.camera;
+
+
+    const puntoCO = document.querySelector("#h3_puntoCO");
+    const puntoRRE = document.querySelector("#h3_puntoRRE");
+
+    const puntoA = document.querySelector("#h3_puntoA");
+    const puntoSUS = document.querySelector("#h3_puntoSUS");
+    const puntoTA = document.querySelector("#h3_puntoTA");
+    const puntoDO = document.querySelector("#h3_puntoDO");
+
+    const puntoOVNI = document.querySelector("#h3_puntoOVNI");
+    const puntoSUSTO = document.querySelector("#h3_puntoSUSTO");
+
+
+    function reproducirAudio(id) {
+
+        const audio = document.querySelector(id);
+
+        audio.pause();
+        audio.currentTime = 0;
+
+        return audio.play().catch(function(error) {
+
+            console.log(
+                "Error reproduciendo " + id,
+                error
+            );
+
+        });
+
+    }
+
+
+
+    const marcadorHA3 = document.querySelector("#h3_marcadorHA3");
+
+    let gritoPendiente = false;
+    let marcadorVisible = false;
+
+    marcadorHA3.addEventListener("targetFound", function () {
+
+        marcadorVisible = true;
+
+        const audio = document.querySelector("#h3_audioSUSTO");
+
+        audio.pause();
+        audio.currentTime = 0;
+
+        const intento = audio.play();
+
+        if (intento !== undefined) {
+
+            intento.then(function () {
+
+                gritoPendiente = false;
+
+            }).catch(function () {
+
+            
+                gritoPendiente = true;
+
+            });
+
+        }
+
+    });
+
+    marcadorHA3.addEventListener("targetLost", function () {
+
+        marcadorVisible = false;
+        gritoPendiente = false;
+
+    });
+
+
+
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+
+
+
+    let pasoCorre = 0;
+    let pasoAsustado = 0;
+
+
+
+    canvas.addEventListener("pointerdown", function (evento) {
+        if (!document.querySelector("#h3_marcadorHA3").object3D.visible) return;
+
+
+
+        if (!audioDesbloqueado) {
+
+            audioDesbloqueado = true;
+
+        }
+
+        if (gritoPendiente && marcadorVisible) {
+
+            gritoPendiente = false;
+            reproducirAudio("#h3_audioSUSTO");
+
+        }
+
+
+        const rect = canvas.getBoundingClientRect();
+
+        mouse.x =
+            ((evento.clientX - rect.left) / rect.width) * 2 - 1;
+
+        mouse.y =
+            -((evento.clientY - rect.top) / rect.height) * 2 + 1;
+
+        raycaster.setFromCamera(
+            mouse,
+            camera
+        );
+
+
+        const objetos = [
+
+            puntoCO.object3D,
+            puntoRRE.object3D,
+
+            puntoA.object3D,
+            puntoSUS.object3D,
+            puntoTA.object3D,
+            puntoDO.object3D,
+
+            puntoOVNI.object3D,
+            puntoSUSTO.object3D
+
+        ];
+
+        const intersecciones =
+            raycaster.intersectObjects(
+                objetos,
+                true
+            );
+
+        if (intersecciones.length > 0) {
+
+            const objetoTocado =
+                intersecciones[0].object.el;
+
+
+        
+            if (objetoTocado.id === "h3_puntoCO") {
+
+                reproducirAudio("#h3_audioCO");
+
+                if (pasoCorre === 0) {
+
+                    document
+                        .querySelector("#h3_visualRRE")
+                        .emit("aparecer");
+
+                    pasoCorre = 1;
+
+                }
+
+            }
+
+
+
+            else if (objetoTocado.id === "h3_puntoRRE") {
+
+                if (pasoCorre >= 1) {
+
+                    reproducirAudio("#h3_audioRRE");
+
+                }
+
+            }
+
+
+
+            else if (objetoTocado.id === "h3_puntoA") {
+
+                reproducirAudio("#h3_audioA");
+
+                if (pasoAsustado === 0) {
+
+                    document
+                        .querySelector("#h3_visualSUS")
+                        .emit("aparecer");
+
+                    pasoAsustado = 1;
+
+                }
+
+            }
+
+
+
+            else if (objetoTocado.id === "h3_puntoSUS") {
+
+                if (pasoAsustado >= 1) {
+
+                    reproducirAudio("#h3_audioSUS");
+
+                }
+
+                if (pasoAsustado === 1) {
+
+                    document
+                        .querySelector("#h3_visualTA")
+                        .emit("aparecer");
+
+                    pasoAsustado = 2;
+
+                }
+
+            }
+
+
+            else if (objetoTocado.id === "h3_puntoTA") {
+
+                if (pasoAsustado >= 2) {
+
+                    reproducirAudio("#h3_audioTA");
+
+                }
+
+                if (pasoAsustado === 2) {
+
+                    document
+                        .querySelector("#h3_visualDO")
+                        .emit("aparecer");
+
+                    pasoAsustado = 3;
+
+                }
+
+            }
+
+
+            else if (objetoTocado.id === "h3_puntoDO") {
+
+                if (pasoAsustado >= 3) {
+
+                    reproducirAudio("#h3_audioDO");
+
+                }
+
+            }
+
+
+
+            else if (objetoTocado.id === "h3_puntoOVNI") {
+
+                reproducirAudio("#h3_audioOVNI");
+
+            }
+
+
+            else if (objetoTocado.id === "h3_puntoSUSTO") {
+
+                gritoPendiente = false;
+                reproducirAudio("#h3_audioSUSTO");
+
+            }
+
+        }
+
+    });
+
+});
+
+
+  })();
+  </script>
+  <!-- Interacciones H4 -->
+  <script>
+  (function () {
+
+
+const escena = document.querySelector("a-scene");
+
+let audioDesbloqueado = false;
+
+escena.addEventListener("loaded", function () {
+
+    const canvas = escena.renderer.domElement;
+    const camera = escena.camera;
+
+    const puntoCA = document.querySelector("#h4_puntoCA");
+    const puntoMI = document.querySelector("#h4_puntoMI");
+    const puntoNO = document.querySelector("#h4_puntoNO");
+
+    const puntoA = document.querySelector("#h4_puntoA");
+    const puntoBUE = document.querySelector("#h4_puntoBUE");
+    const puntoLA = document.querySelector("#h4_puntoLA");
+
+    const puntoVA = document.querySelector("#h4_puntoVA");
+    const puntoLIEN = document.querySelector("#h4_puntoLIEN");
+    const puntoTE = document.querySelector("#h4_puntoTE");
+
+    const puntoOVNI = document.querySelector("#h4_puntoOVNI");
+
+    function reproducirAudio(id) {
+
+        const audio = document.querySelector(id);
+
+        audio.pause();
+        audio.currentTime = 0;
+
+        return audio.play().catch(function (error) {
+
+            console.log(
+                "Error reproduciendo " + id,
+                error
+            );
+
+        });
+    }
+
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+
+
+    let pasoCamino = 0;
+    let pasoAbuela = 0;
+    let pasoValiente = 0;
+
+
+    const marcadorHA4 = document.querySelector("#h4_marcadorHA4");
+
+    marcadorHA4.addEventListener("targetLost", function () {
+
+    });
+
+
+
+    canvas.addEventListener("pointerdown", function (evento) {
+        if (!document.querySelector("#h4_marcadorHA4").object3D.visible) return;
+
+
+       
+        if (!audioDesbloqueado) {
+            audioDesbloqueado = true;
+        }
+
+        const rect = canvas.getBoundingClientRect();
+
+        mouse.x =
+            ((evento.clientX - rect.left) / rect.width) * 2 - 1;
+
+        mouse.y =
+            -((evento.clientY - rect.top) / rect.height) * 2 + 1;
+
+        raycaster.setFromCamera(mouse, camera);
+
+
+        const objetos = [
+
+            puntoCA.object3D,
+            puntoMI.object3D,
+            puntoNO.object3D,
+
+            puntoA.object3D,
+            puntoBUE.object3D,
+            puntoLA.object3D,
+
+            puntoVA.object3D,
+            puntoLIEN.object3D,
+            puntoTE.object3D,
+
+            puntoOVNI.object3D
+
+        ];
+
+        const intersecciones =
+            raycaster.intersectObjects(objetos, true);
+
+        if (intersecciones.length > 0) {
+
+            const objetoTocado =
+                intersecciones[0].object.el;
+
+
+            if (objetoTocado.id === "h4_puntoCA") {
+
+                reproducirAudio("#h4_audioCA");
+
+                if (pasoCamino === 0) {
+
+                    document.querySelector("#h4_visualMI")
+                        .emit("aparecer");
+
+                    pasoCamino = 1;
+                }
+            }
+
+            else if (objetoTocado.id === "h4_puntoMI") {
+
+                if (pasoCamino >= 1) {
+
+                    reproducirAudio("#h4_audioMI");
+                }
+
+                if (pasoCamino === 1) {
+
+                    document.querySelector("#h4_visualNO")
+                        .emit("aparecer");
+
+                    pasoCamino = 2;
+                }
+            }
+
+            else if (objetoTocado.id === "h4_puntoNO") {
+
+                if (pasoCamino >= 2) {
+
+                    reproducirAudio("#h4_audioNO");
+                }
+            }
+
+            else if (objetoTocado.id === "h4_puntoA") {
+
+                reproducirAudio("#h4_audioA");
+
+                if (pasoAbuela === 0) {
+
+                    document.querySelector("#h4_visualBUE")
+                        .emit("aparecer");
+
+                    pasoAbuela = 1;
+                }
+            }
+
+            else if (objetoTocado.id === "h4_puntoBUE") {
+
+                if (pasoAbuela >= 1) {
+
+                    reproducirAudio("#h4_audioBUE");
+                }
+
+                if (pasoAbuela === 1) {
+
+                    document.querySelector("#h4_visualLA")
+                        .emit("aparecer");
+
+                    pasoAbuela = 2;
+                }
+            }
+
+            else if (objetoTocado.id === "h4_puntoLA") {
+
+                if (pasoAbuela >= 2) {
+
+                    reproducirAudio("#h4_audioLA");
+                }
+            }
+
+
+            else if (objetoTocado.id === "h4_puntoVA") {
+
+                reproducirAudio("#h4_audioVA");
+
+                if (pasoValiente === 0) {
+
+                    document.querySelector("#h4_visualLIEN")
+                        .emit("aparecer");
+
+                    pasoValiente = 1;
+                }
+            }
+
+            else if (objetoTocado.id === "h4_puntoLIEN") {
+
+                if (pasoValiente >= 1) {
+
+                    reproducirAudio("#h4_audioLIEN");
+                }
+
+                if (pasoValiente === 1) {
+
+                    document.querySelector("#h4_visualTE")
+                        .emit("aparecer");
+
+                    pasoValiente = 2;
+                }
+            }
+
+            else if (objetoTocado.id === "h4_puntoTE") {
+
+                if (pasoValiente >= 2) {
+
+                    reproducirAudio("#h4_audioTE");
+                }
+            }
+
+
+            else if (objetoTocado.id === "h4_puntoOVNI") {
+
+                reproducirAudio("#h4_audioOVNI");
+            }
+
+        }
+
+    });
+
+});
+
+
+  })();
+  </script>
+  <!-- Interacciones H5 -->
+  <script>
+  (function () {
+
+
+        const escena =
+            document.querySelector("a-scene");
+
+        escena.addEventListener("loaded", function () {
+
+            const canvas =
+                escena.renderer.domElement;
+
+            const camera =
+                escena.camera;
+
+            const marcadorHA5 =
+                document.querySelector("#h5_marcadorHA5");
+
+
+            const puntoAbuela =
+                document.querySelector("#h5_puntoAbuela");
+
+            const audioAbuela =
+                document.querySelector("#h5_audioAbuela");
+
+            const visualDestellos =
+                document.querySelector("#h5_visualDestellos");
+
+
+            const puntoNina =
+                document.querySelector("#h5_puntoNina");
+
+            const visualNinaParpadeo =
+                document.querySelector("#h5_visualNinaParpadeo");
+
+            const audioNina =
+                document.querySelector("#h5_audioNina");
+
+            const visualDestellosNina =
+                document.querySelector("#h5_visualDestellosNina");
+
+
+            function reproducirAudio(audio) {
+
+                audio.pause();
+
+                audio.currentTime = 0;
+
+                audio.play().catch(function (error) {
+
+                    console.log(
+                        "Error reproduciendo audio:",
+                        error
+                    );
+
+                });
+            }
+
+
+            let parpadeando = false;
+
+            let temporizadorParpadeo = null;
+
+
+            function parpadearNina() {
+
+                if (parpadeando) return;
+
+                parpadeando = true;
+
+
+                visualNinaParpadeo.setAttribute(
+                    "visible",
+                    true
+                );
+
+
+                temporizadorParpadeo =
+                    setTimeout(function () {
+
+                        visualNinaParpadeo.setAttribute(
+                            "visible",
+                            false
+                        );
+
+                        parpadeando = false;
+
+                        temporizadorParpadeo = null;
+
+                    }, 220);
+            }
+
+
+            const fotogramasDestellos = [
+
+                "#h5_destello4",
+                "#h5_destello3",
+                "#h5_destello2",
+                "#h5_destello1",
+                "#h5_destello2",
+                "#h5_destello3",
+                "#h5_destello4"
+
+            ];
+
+
+            let intervaloAnimacion = null;
+
+            let indiceFotograma = 0;
+
+
+            function mostrarFotograma() {
+
+                visualDestellos.setAttribute(
+                    "src",
+                    fotogramasDestellos[indiceFotograma]
+                );
+
+                indiceFotograma =
+                    (indiceFotograma + 1) %
+                    fotogramasDestellos.length;
+            }
+
+
+            function detenerAnimacionDestellos() {
+
+                if (intervaloAnimacion !== null) {
+
+                    clearInterval(intervaloAnimacion);
+                }
+
+                intervaloAnimacion = null;
+
+                visualDestellos.removeAttribute(
+                    "animation__flotar"
+                );
+
+                visualDestellos.setAttribute(
+                    "position",
+                    "0 0 0"
+                );
+
+                visualDestellos.setAttribute(
+                    "visible",
+                    false
+                );
+
+                visualDestellos.setAttribute(
+                    "material",
+                    "opacity",
+                    0
+                );
+            }
+
+
+            function iniciarAnimacionDestellos() {
+
+                detenerAnimacionDestellos();
+
+                indiceFotograma = 0;
+
+                visualDestellos.setAttribute(
+                    "visible",
+                    true
+                );
+
+                visualDestellos.setAttribute(
+                    "material",
+                    "opacity",
+                    0.85
+                );
+
+                visualDestellos.setAttribute(
+                    "animation__flotar",
+                    "property: position; from: 0 -0.015 0; to: 0 0.015 0; dur: 1400; dir: alternate; loop: true; easing: easeInOutSine"
+                );
+
+                mostrarFotograma();
+
+
+                intervaloAnimacion =
+                    setInterval(
+                        mostrarFotograma,
+                        200
+                    );
+            }
+
+
+            function hablarAbuela() {
+
+
+                reproducirAudio(audioAbuela);
+
+
+                iniciarAnimacionDestellos();
+            }
+
+
+
+            audioAbuela.addEventListener(
+                "ended",
+                detenerAnimacionDestellos
+            );
+
+
+            let intervaloDestellosNina = null;
+
+            let temporizadorDestellosNina = null;
+
+            let indiceDestellosNina = 0;
+
+            const duracionFotogramaNina = 120;
+
+
+
+            function mostrarFotogramaNina() {
+
+                visualDestellosNina.setAttribute(
+                    "src",
+                    fotogramasDestellos[indiceDestellosNina]
+                );
+
+                indiceDestellosNina =
+                    (indiceDestellosNina + 1) %
+                    fotogramasDestellos.length;
+            }
+
+
+
+            function detenerDestellosNina() {
+
+                if (intervaloDestellosNina !== null) {
+
+                    clearInterval(intervaloDestellosNina);
+                }
+
+                if (temporizadorDestellosNina !== null) {
+
+                    clearTimeout(temporizadorDestellosNina);
+                }
+
+                intervaloDestellosNina = null;
+
+                temporizadorDestellosNina = null;
+
+                visualDestellosNina.removeAttribute(
+                    "animation__flotar"
+                );
+
+                visualDestellosNina.setAttribute(
+                    "position",
+                    "0 0 0"
+                );
+
+                visualDestellosNina.setAttribute(
+                    "visible",
+                    false
+                );
+            }
+
+
+            function iniciarDestellosNina() {
+
+                detenerDestellosNina();
+
+                indiceDestellosNina = 0;
+
+                visualDestellosNina.setAttribute(
+                    "visible",
+                    true
+                );
+
+
+                visualDestellosNina.setAttribute(
+                    "animation__flotar",
+                    "property: position; from: 0 -0.012 0; to: 0 0.012 0; dur: 800; dir: alternate; loop: true; easing: easeInOutSine"
+                );
+
+                mostrarFotogramaNina();
+
+
+                intervaloDestellosNina =
+                    setInterval(
+                        mostrarFotogramaNina,
+                        duracionFotogramaNina
+                    );
+
+
+                temporizadorDestellosNina =
+                    setTimeout(
+                        detenerDestellosNina,
+                        1200
+                    );
+            }
+
+
+
+            function reaccionNina() {
+
+
+                reproducirAudio(audioNina);
+
+
+                parpadearNina();
+
+
+                iniciarDestellosNina();
+            }
+
+
+            const raycaster =
+                new THREE.Raycaster();
+
+            const mouse =
+                new THREE.Vector2();
+
+
+            canvas.addEventListener(
+                "pointerdown",
+                function (evento) {
+
+
+                    if (!marcadorHA5.object3D.visible) {
+
+                        return;
+                    }
+
+
+                    const rect =
+                        canvas.getBoundingClientRect();
+
+                    mouse.x =
+                        ((evento.clientX - rect.left) /
+                        rect.width) * 2 - 1;
+
+                    mouse.y =
+                        -((evento.clientY - rect.top) /
+                        rect.height) * 2 + 1;
+
+
+                    raycaster.setFromCamera(
+                        mouse,
+                        camera
+                    );
+
+
+                    const intersecciones =
+                        raycaster.intersectObjects(
+                            [
+                                puntoAbuela.object3D,
+                                puntoNina.object3D
+                            ],
+                            true
+                        );
+
+                    if (intersecciones.length === 0) {
+
+                        return;
+                    }
+
+                    const tocado =
+                        intersecciones[0].object.el;
+
+
+
+                    if (tocado.id === "h5_puntoAbuela") {
+
+                        hablarAbuela();
+
+                    }
+
+
+                    else if (tocado.id === "h5_puntoNina") {
+
+                        reaccionNina();
+
+                    }
+                }
+            );
+
+
+            marcadorHA5.addEventListener(
+                "targetLost",
+                function () {
+
+
+                    detenerAnimacionDestellos();
+
+
+                    detenerDestellosNina();
+
+
+                    if (temporizadorParpadeo !== null) {
+
+                        clearTimeout(temporizadorParpadeo);
+                    }
+
+                    temporizadorParpadeo = null;
+
+                    parpadeando = false;
+
+                    visualNinaParpadeo.setAttribute(
+                        "visible",
+                        false
+                    );
+
+
+                    audioAbuela.pause();
+
+                    audioNina.pause();
+                }
+            );
+
+        });
+
+    
+  })();
+  </script>
+</body>
+</html>
